@@ -389,6 +389,75 @@ footer a:hover{color:var(--amber);}
       </div>
       </div>
 
+      <!-- AI 6 -->
+      <div class="tiltcard" data-cat="ai">
+      <div class="card ai">
+        <div class="card-bar"><span class="cb-dot cb-r"></span><span class="cb-dot cb-y"></span><span class="cb-dot cb-g"></span><span class="card-url">n8n — multi-account ops monitor</span><span class="card-status">personal build · live</span></div>
+        <div class="card-body">
+          <div class="card-tag">Ops Automation</div>
+          <div class="card-title">Self-Healing Ad Account Monitor</div>
+          <div class="card-problem">// running 5+ live ad accounts means something breaks while you're asleep</div>
+          <p class="card-desc">An n8n workflow that polls every account I'm actively running, flags pixel/EMQ drops and budget anomalies the moment they happen, and has an LLM diagnostic step draft the fix — I approve it from my phone instead of finding out three days late.</p>
+          <div class="card-viz"><svg viewBox="0 0 280 54">
+            <rect x="0" y="8" width="40" height="20" rx="4" fill="var(--bg3)" stroke="var(--border2)"/>
+            <rect x="48" y="8" width="40" height="20" rx="4" fill="var(--bg3)" stroke="var(--border2)"/>
+            <rect x="96" y="8" width="40" height="20" rx="4" fill="var(--blue-dim)" stroke="var(--blue)"/><circle cx="116" cy="4" r="3" fill="var(--blue)"/>
+            <rect x="144" y="8" width="40" height="20" rx="4" fill="var(--bg3)" stroke="var(--border2)"/>
+            <rect x="192" y="8" width="40" height="20" rx="4" fill="var(--bg3)" stroke="var(--border2)"/>
+            <text x="140" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--blue)">✓ caught &amp; fixed before it cost anything</text>
+          </svg></div>
+          <div class="metrics"><span class="metric">watches 5+ live accounts</span><span class="metric">LLM-drafted fix proposals</span><span class="metric">human approval before it touches spend</span></div>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">LLM Agent</span><span class="tag">Meta API</span><span class="tag">Ops</span></div>
+        </div>
+      </div>
+      </div>
+
+      <!-- AI 7 -->
+      <div class="tiltcard" data-cat="ai">
+      <div class="card ai">
+        <div class="card-bar"><span class="cb-dot cb-r"></span><span class="cb-dot cb-y"></span><span class="cb-dot cb-g"></span><span class="card-url">langchain — playbook retrieval agent</span><span class="card-status">personal build · active</span></div>
+        <div class="card-body">
+          <div class="card-tag">Internal Tooling</div>
+          <div class="card-title">Playbook RAG Agent</div>
+          <div class="card-problem">// the fix for one client's pixel issue is useful again the moment another client has the same one</div>
+          <p class="card-desc">A LangChain agent over Pinecone, indexed on my own SOPs and past fixes. Ask it how I resolved a given Event Match Quality issue and it pulls the exact playbook instead of me reconstructing it from memory.</p>
+          <div class="card-viz"><svg viewBox="0 0 280 50">
+            <rect x="6" y="14" width="46" height="30" rx="3" fill="var(--bg3)" stroke="var(--border2)"/>
+            <rect x="3" y="11" width="46" height="30" rx="3" fill="var(--bg3)" stroke="var(--border2)"/>
+            <rect x="0" y="8" width="46" height="30" rx="3" fill="var(--bg3)" stroke="var(--border2)"/>
+            <text x="23" y="26" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="var(--text2)">SOPs</text>
+            <line x1="58" y1="23" x2="100" y2="23" stroke="var(--border2)" stroke-dasharray="3 3"/>
+            <rect x="104" y="6" width="140" height="34" rx="4" fill="var(--blue-dim)" stroke="var(--blue)"/>
+            <text x="174" y="26" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--blue)">exact fix, recalled</text>
+          </svg></div>
+          <div class="metrics"><span class="metric">indexed on real SOPs</span><span class="metric">sub-2s recall</span><span class="metric">grows with every engagement</span></div>
+          <div class="tags"><span class="tag">LangChain</span><span class="tag">Pinecone</span><span class="tag">RAG</span><span class="tag">Claude API</span></div>
+        </div>
+      </div>
+      </div>
+
+      <!-- AI 8 -->
+      <div class="tiltcard" data-cat="ai">
+      <div class="card ai">
+        <div class="card-bar"><span class="cb-dot cb-r"></span><span class="cb-dot cb-y"></span><span class="cb-dot cb-g"></span><span class="card-url">langchain — proposal drafting agent</span><span class="card-status">personal build · in progress</span></div>
+        <div class="card-body">
+          <div class="card-tag">Growth Automation</div>
+          <div class="card-title">Proposal Drafting Agent</div>
+          <div class="card-problem">// writing a tailored first-pass proposal for every brief doesn't scale past a few a day</div>
+          <p class="card-desc">Embeds an incoming Fiverr or Upwork brief, matches it against my own case studies, and drafts a first-pass proposal that references the most relevant past work — I edit and send instead of starting from a blank box.</p>
+          <div class="card-viz"><svg viewBox="0 0 280 50">
+            <rect x="0" y="14" width="58" height="22" rx="3" fill="var(--bg3)" stroke="var(--border2)"/><text x="29" y="28" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="var(--text2)">new brief</text>
+            <line x1="58" y1="25" x2="86" y2="25" stroke="var(--border2)" stroke-dasharray="3 3"/>
+            <rect x="86" y="14" width="130" height="22" rx="3" fill="var(--blue-dim)" stroke="var(--blue)"/><text x="151" y="28" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="var(--blue)">best-match case study</text>
+            <line x1="216" y1="25" x2="240" y2="25" stroke="var(--border2)" stroke-dasharray="3 3"/>
+            <rect x="240" y="14" width="36" height="22" rx="3" fill="var(--bg3)" stroke="var(--border2)"/><text x="258" y="28" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="var(--text2)">draft</text>
+          </svg></div>
+          <div class="metrics"><span class="metric">matches past case studies</span><span class="metric">first-pass draft in seconds</span><span class="metric">human edits before sending</span></div>
+          <div class="tags"><span class="tag">LangChain</span><span class="tag">Embeddings</span><span class="tag">Automation</span></div>
+        </div>
+      </div>
+      </div>
+
       <!-- ADS 1 -->
       <div class="tiltcard" data-cat="ads">
       <div class="card ads">
