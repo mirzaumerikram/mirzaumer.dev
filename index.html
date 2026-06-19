@@ -17,22 +17,22 @@
   --surface:#10141A; --surface2:#151B22;
   --border:#1C2229; --border2:#262E38;
   --text:#ECEFF3; --text2:#8C94A1; --text3:#525964;
- 
+
   --amber:#FF9A47; --amber-dim:rgba(255,154,71,0.10); --amber-glow:rgba(255,154,71,0.32); --amber-deep:#C8702A;
   --blue:#5DA9FF; --blue-dim:rgba(93,169,255,0.10); --blue-glow:rgba(93,169,255,0.32); --blue-deep:#3E72B8;
- 
+
   --sans:'Inter',sans-serif; --display:'Space Grotesk',sans-serif; --mono:'JetBrains Mono',monospace;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden;}
 ::selection{background:var(--amber-glow);color:#06080B;}
- 
+
 #bgcanvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.4;}
- 
+
 a{color:inherit;}
 .wrap{max-width:1080px;margin:0 auto;padding:0 2rem;position:relative;z-index:1;}
- 
+
 /* ---------- NAV ---------- */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:64px;background:rgba(6,8,11,0.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);}
 .nav-logo{font-family:var(--display);font-weight:600;font-size:15px;color:var(--text);text-decoration:none;letter-spacing:-0.01em;display:flex;align-items:center;gap:8px;}
@@ -42,7 +42,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .nav-links a:hover{color:var(--text);}
 .nav-cta{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--bg);background:var(--amber);padding:8px 16px;border-radius:5px;text-decoration:none;transition:all 0.2s;letter-spacing:0.02em;}
 .nav-cta:hover{box-shadow:0 0 22px var(--amber-glow);transform:translateY(-1px);}
- 
+
 /* ---------- HERO ---------- */
 .hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 60px;}
 .hero-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:2rem;align-items:center;width:100%;}
@@ -58,7 +58,7 @@ h1 .b{color:var(--blue);}
 .btn-primary:hover{box-shadow:0 0 30px var(--amber-glow);transform:translateY(-1px);}
 .btn-ghost{font-family:var(--mono);font-size:12.5px;color:var(--text2);text-decoration:none;border:1px solid var(--border2);padding:12px 18px;border-radius:6px;transition:all 0.2s;letter-spacing:0.02em;}
 .btn-ghost:hover{color:var(--text);border-color:var(--text3);}
- 
+
 .stat-row{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:1rem;}
 .stat{padding:1rem 1.1rem;border-right:1px solid var(--border);background:var(--surface);}
 .stat:last-child{border-right:none;}
@@ -70,7 +70,7 @@ h1 .b{color:var(--blue);}
 .now-line .pulse::after{content:'';}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.35}}
 .now-line .pulse{animation:pulse 2s ease-in-out infinite;}
- 
+
 /* ---------- ORBIT (signature 3D element) ---------- */
 .orbit-wrap{position:relative;width:100%;aspect-ratio:1/1;max-width:460px;margin:0 auto;}
 #orbit{position:absolute;inset:0;cursor:grab;touch-action:none;}
@@ -80,7 +80,7 @@ h1 .b{color:var(--blue);}
 .node.ai{color:var(--blue);border-color:rgba(93,169,255,0.35);box-shadow:0 0 16px rgba(93,169,255,0.08);}
 .node.ads{color:var(--amber);border-color:rgba(255,154,71,0.35);box-shadow:0 0 16px rgba(255,154,71,0.08);}
 .orbit-hint{text-align:center;font-family:var(--mono);font-size:10.5px;color:var(--text3);margin-top:0.6rem;letter-spacing:0.03em;}
- 
+
 /* ---------- SECTIONS ---------- */
 section{padding:88px 0;}
 .section-tag{font-family:var(--mono);font-size:11px;color:var(--amber);letter-spacing:0.12em;margin-bottom:0.6rem;display:flex;align-items:center;gap:10px;text-transform:uppercase;}
@@ -89,7 +89,7 @@ section{padding:88px 0;}
 .section-tag.b::before{background:var(--blue);}
 h2{font-family:var(--display);font-size:1.7rem;font-weight:600;letter-spacing:-0.015em;color:var(--text);margin-bottom:0.7rem;}
 .section-lede{font-size:15px;color:var(--text2);max-width:620px;line-height:1.75;margin-bottom:2.6rem;font-weight:300;}
- 
+
 /* ---------- TWO PILLARS ---------- */
 .pillars{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
 .pillar{position:relative;border:1px solid var(--border);border-radius:12px;padding:1.8rem;background:var(--surface);overflow:hidden;perspective:900px;}
@@ -105,7 +105,7 @@ h2{font-family:var(--display);font-size:1.7rem;font-weight:600;letter-spacing:-0
 .pillar-list span{font-family:var(--mono);font-size:11px;color:var(--text3);background:var(--bg3);border:1px solid var(--border);padding:3px 9px;border-radius:4px;}
 .tie-line{margin-top:1.6rem;padding:1.1rem 1.3rem;border:1px solid var(--border);border-radius:10px;background:linear-gradient(135deg, var(--blue-dim), var(--amber-dim));font-size:13.5px;color:var(--text2);line-height:1.7;}
 .tie-line strong{color:var(--text);font-weight:500;}
- 
+
 /* ---------- FILTER TABS ---------- */
 .filters{display:flex;gap:10px;margin-bottom:2rem;flex-wrap:wrap;}
 .filter-btn{font-family:var(--mono);font-size:12px;color:var(--text2);background:var(--surface);border:1px solid var(--border);padding:8px 16px;border-radius:20px;cursor:pointer;transition:all 0.2s;letter-spacing:0.02em;}
@@ -113,7 +113,7 @@ h2{font-family:var(--display);font-size:1.7rem;font-weight:600;letter-spacing:-0
 .filter-btn.active[data-f="all"]{background:var(--text);color:var(--bg);border-color:var(--text);}
 .filter-btn.active[data-f="ai"]{background:var(--blue);color:var(--bg);border-color:var(--blue);}
 .filter-btn.active[data-f="ads"]{background:var(--amber);color:var(--bg);border-color:var(--amber);}
- 
+
 /* ---------- PROJECT CARDS (tilt) ---------- */
 .card-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
 .tiltcard{perspective:1100px;}
@@ -139,7 +139,7 @@ h2{font-family:var(--display);font-size:1.7rem;font-weight:600;letter-spacing:-0
 .metric{font-family:var(--mono);font-size:10.5px;font-weight:500;color:var(--c);background:var(--cd);border:1px solid var(--border2);padding:4px 9px;border-radius:3px;letter-spacing:0.02em;}
 .tags{display:flex;gap:6px;flex-wrap:wrap;}
 .tag{font-family:var(--mono);font-size:10.5px;color:var(--text3);background:var(--bg3);border:1px solid var(--border);padding:3px 8px;border-radius:3px;}
- 
+
 /* ---------- MORE ENGAGEMENTS ---------- */
 .roster{margin-top:2.4rem;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
 .roster-head{padding:1rem 1.4rem;border-bottom:1px solid var(--border);background:var(--surface);font-family:var(--mono);font-size:11.5px;color:var(--text3);letter-spacing:0.04em;}
@@ -152,7 +152,7 @@ h2{font-family:var(--display);font-size:1.7rem;font-weight:600;letter-spacing:-0
 .rs-done{color:var(--text3);background:var(--bg3);}
 .rs-live{color:var(--amber);background:var(--amber-dim);}
 .rs-soon{color:var(--blue);background:var(--blue-dim);}
- 
+
 /* ---------- STACK ---------- */
 .stack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:10px;overflow:hidden;border:1px solid var(--border);}
 .stack-card{background:var(--surface);padding:1.4rem 1.2rem;transition:background 0.2s;}
@@ -161,7 +161,7 @@ h2{font-family:var(--display);font-size:1.7rem;font-weight:600;letter-spacing:-0
 .stack-cat.ai{color:var(--blue);}
 .stack-cat.ads{color:var(--amber);}
 .stack-tools{font-size:12.5px;color:var(--text2);line-height:1.85;}
- 
+
 /* ---------- TIMELINE ---------- */
 .timeline{border-left:1px solid var(--border2);padding-left:1.8rem;display:flex;flex-direction:column;gap:1.8rem;}
 .tl-item{position:relative;}
@@ -170,7 +170,7 @@ h2{font-family:var(--display);font-size:1.7rem;font-weight:600;letter-spacing:-0
 .tl-era{font-family:var(--mono);font-size:11px;color:var(--text3);letter-spacing:0.04em;margin-bottom:3px;}
 .tl-title{font-family:var(--display);font-weight:600;font-size:15.5px;color:var(--text);margin-bottom:3px;}
 .tl-desc{font-size:13.5px;color:var(--text2);line-height:1.7;max-width:560px;}
- 
+
 /* ---------- TERMINAL ---------- */
 .terminal{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
 .terminal-bar{background:var(--bg3);padding:10px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border);}
@@ -183,16 +183,16 @@ h2{font-family:var(--display);font-size:1.7rem;font-weight:600;letter-spacing:-0
 .t-link{color:var(--blue);text-decoration:none;}.t-link:hover{text-decoration:underline;}
 .cursor{display:inline-block;width:7px;height:13px;background:var(--amber);vertical-align:middle;animation:blink 1s step-end infinite;}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
- 
+
 footer{padding:2.2rem 0;text-align:center;font-family:var(--mono);font-size:11.5px;color:var(--text3);border-top:1px solid var(--border);}
 footer a{color:var(--text2);text-decoration:none;}
 footer a:hover{color:var(--amber);}
- 
+
 .reveal{opacity:0;transform:translateY(18px);transition:opacity 0.6s ease,transform 0.6s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
- 
+
 .typed-text{color:var(--amber);}
- 
+
 @media(max-width:880px){
   .hero-grid{grid-template-columns:1fr;}
   .orbit-wrap{max-width:320px;margin-top:1rem;}
@@ -213,7 +213,7 @@ footer a:hover{color:var(--amber);}
 </head>
 <body>
 <canvas id="bgcanvas"></canvas>
- 
+
 <nav>
   <a class="nav-logo" href="#"><span class="dot"></span>mirza.dev</a>
   <div class="nav-links">
@@ -224,9 +224,9 @@ footer a:hover{color:var(--amber);}
   </div>
   <a class="nav-cta" href="https://www.fiverr.com/mirzaumerikram" target="_blank" rel="noopener">hire me</a>
 </nav>
- 
+
 <div class="wrap">
- 
+
   <!-- ============ HERO ============ -->
   <div class="hero">
     <div class="hero-grid">
@@ -249,7 +249,7 @@ footer a:hover{color:var(--amber);}
         </div>
         <div class="now-line"><span class="pulse"></span>Currently running active Meta Ads accounts in Canada, Australia, South Africa &amp; the US.</div>
       </div>
- 
+
       <div>
         <div class="orbit-wrap">
           <div id="orbit">
@@ -260,13 +260,13 @@ footer a:hover{color:var(--amber);}
       </div>
     </div>
   </div>
- 
+
   <!-- ============ WHAT I DO ============ -->
   <section id="approach">
     <div class="section-tag reveal">two_disciplines</div>
     <h2 class="reveal">Most freelancers do one of these. I do both, on purpose.</h2>
     <p class="section-lede reveal">Ad accounts break because of broken engineering — a pixel that's not firing, a budget split that's strangling the winning audience, a manual step nobody automated. Treating both as one job is what actually fixes things.</p>
- 
+
     <div class="pillars reveal">
       <div class="pillar blue">
         <span class="pillar-tag">AI &amp; Automation</span>
@@ -285,24 +285,24 @@ footer a:hover{color:var(--amber);}
         </div>
       </div>
     </div>
- 
+
     <div class="tie-line reveal">Almost every Meta Ads engagement I take on starts the same way: <strong>the pixel is lying to the algorithm.</strong> Fixing that — Event Match Quality, CBO vs ABO, Conversions API — is automation work wearing a marketing hat.</div>
   </section>
- 
+
   <!-- ============ SELECTED WORK ============ -->
   <section id="work">
     <div class="section-tag reveal">selected_work</div>
     <h2 class="reveal">Real engagements. Real numbers.</h2>
     <p class="section-lede reveal">Filter by discipline, or look at all of it — it's usually the same client either way.</p>
- 
+
     <div class="filters reveal">
       <button class="filter-btn active" data-f="all">all work</button>
       <button class="filter-btn" data-f="ai">ai &amp; automation</button>
       <button class="filter-btn" data-f="ads">performance marketing</button>
     </div>
- 
+
     <div class="card-grid reveal" id="cardGrid">
- 
+
       <!-- AI 1 -->
       <div class="tiltcard" data-cat="ai">
       <div class="card ai">
@@ -312,13 +312,13 @@ footer a:hover{color:var(--amber);}
           <div class="card-title">Voice Agent for Inbound Appointment Booking</div>
           <div class="card-problem">// a clinic was paying for a 24/7 receptionist it barely needed</div>
           <p class="card-desc">Built a voice agent that answers, qualifies the caller, and books the slot directly into the calendar — no hold music, no after-hours staffing cost.</p>
-          <div class="card-viz"><svg viewBox="0 0 280 60"><polyline points="0,50 35,44 70,38 105,30 140,26 175,18 210,14 245,9 280,6" fill="none" stroke="var(--blue)" stroke-width="2.5"/><circle cx="280" cy="6" r="3.5" fill="var(--blue)"/></svg></div>
+          <div class="card-viz"><svg viewBox="0 0 280 60"><polyline points="0,50 35,44 70,38 105,30 140,26 175,18 210,14 245,9 272,6" fill="none" stroke="var(--blue)" stroke-width="2.5"/><circle cx="272" cy="6" r="3.5" fill="var(--blue)"/></svg></div>
           <div class="metrics"><span class="metric">1,240 calls handled</span><span class="metric">87% booking success</span><span class="metric">0 after-hours cost</span></div>
           <div class="tags"><span class="tag">Vapi</span><span class="tag">Voice AI</span><span class="tag">RAG</span></div>
         </div>
       </div>
       </div>
- 
+
       <!-- AI 2 -->
       <div class="tiltcard" data-cat="ai">
       <div class="card ai">
@@ -334,7 +334,7 @@ footer a:hover{color:var(--amber);}
         </div>
       </div>
       </div>
- 
+
       <!-- AI 3 -->
       <div class="tiltcard" data-cat="ai">
       <div class="card ai">
@@ -350,7 +350,7 @@ footer a:hover{color:var(--amber);}
         </div>
       </div>
       </div>
- 
+
       <!-- AI 4 -->
       <div class="tiltcard" data-cat="ai">
       <div class="card ai">
@@ -366,7 +366,7 @@ footer a:hover{color:var(--amber);}
         </div>
       </div>
       </div>
- 
+
       <!-- AI 5 - R&D -->
       <div class="tiltcard" data-cat="ai">
       <div class="card ai">
@@ -388,7 +388,7 @@ footer a:hover{color:var(--amber);}
         </div>
       </div>
       </div>
- 
+
       <!-- ADS 1 -->
       <div class="tiltcard" data-cat="ads">
       <div class="card ads">
@@ -400,7 +400,7 @@ footer a:hover{color:var(--amber);}
           <p class="card-desc">Split bottom-of-funnel retargeting into three precise audiences and let the data show which one actually deserved the budget. Ran alongside Google Ads PMax compliance work on the same account.</p>
           <div class="card-viz"><svg viewBox="0 0 280 70">
             <text x="0" y="14" font-family="JetBrains Mono" font-size="9" fill="var(--text3)">ROAS by audience</text>
-            <rect x="0" y="20" width="200" height="12" rx="2" fill="var(--amber)"/><text x="208" y="29" font-family="JetBrains Mono" font-size="9" fill="var(--amber)">5.52x</text><text x="0" y="20" dy="-2" font-family="JetBrains Mono" font-size="8" fill="var(--text3)"></text>
+            <rect x="0" y="20" width="200" height="12" rx="2" fill="var(--amber)"/><text x="208" y="29" font-family="JetBrains Mono" font-size="9" fill="var(--amber)">5.52x</text>
             <rect x="0" y="38" width="110" height="12" rx="2" fill="var(--border2)"/><text x="118" y="47" font-family="JetBrains Mono" font-size="9" fill="var(--text3)">PDP 14d</text>
             <rect x="0" y="56" width="70" height="12" rx="2" fill="var(--border2)"/><text x="78" y="65" font-family="JetBrains Mono" font-size="9" fill="var(--text3)">All visitors 30d</text>
           </svg></div>
@@ -409,7 +409,7 @@ footer a:hover{color:var(--amber);}
         </div>
       </div>
       </div>
- 
+
       <!-- ADS 2 -->
       <div class="tiltcard" data-cat="ads">
       <div class="card ads">
@@ -419,13 +419,13 @@ footer a:hover{color:var(--amber);}
           <div class="card-title">Vordele — Creative Testing Into a Scale Campaign</div>
           <div class="card-problem">// no idea which of the catalog's products would actually sell</div>
           <p class="card-desc">A 7-day test isolated two winning dresses out of the full catalog. The follow-up campaign, optimized for Add to Cart, took the CPM from "expensive guess" to "this works."</p>
-          <div class="card-viz"><svg viewBox="0 0 280 60"><polyline points="0,12 50,16 100,26 150,36 200,46 250,52 280,54" fill="none" stroke="var(--amber)" stroke-width="2.5"/><text x="0" y="9" font-family="JetBrains Mono" font-size="9" fill="var(--text3)">CPM, day 1 → day 7</text><text x="0" y="20" font-family="JetBrains Mono" font-size="9" fill="var(--text2)">$87</text><text x="250" y="58" font-family="JetBrains Mono" font-size="9" fill="var(--amber)">$32.50</text></svg></div>
+          <div class="card-viz"><svg viewBox="0 0 280 76"><text x="0" y="10" font-family="JetBrains Mono" font-size="9" fill="var(--text3)">CPM, day 1 → day 7</text><polyline points="0,28 45,32 90,40 135,47 180,53 225,58 268,61" fill="none" stroke="var(--amber)" stroke-width="2.5"/><circle cx="0" cy="28" r="3" fill="var(--amber)"/><circle cx="268" cy="61" r="3" fill="var(--amber)"/><text x="0" y="22" font-family="JetBrains Mono" font-size="9" fill="var(--text2)">$87</text><text x="270" y="74" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="var(--amber)">$32.50</text></svg></div>
           <div class="metrics"><span class="metric">8.55% CTR</span><span class="metric">CPM $87 → $32.50</span><span class="metric">2 winning creatives in 7 days</span></div>
           <div class="tags"><span class="tag">Meta Ads</span><span class="tag">Shopify</span><span class="tag">Creative Testing</span></div>
         </div>
       </div>
       </div>
- 
+
       <!-- ADS 3 -->
       <div class="tiltcard" data-cat="ads">
       <div class="card ads">
@@ -441,7 +441,7 @@ footer a:hover{color:var(--amber);}
         </div>
       </div>
       </div>
- 
+
       <!-- ADS 4 -->
       <div class="tiltcard" data-cat="ads">
       <div class="card ads">
@@ -451,15 +451,15 @@ footer a:hover{color:var(--amber);}
           <div class="card-title">Beverly Stays — Traffic Campaign for Direct Bookings</div>
           <div class="card-problem">// a Phoenix Airbnb host needed eyes on the listing, not just likes</div>
           <p class="card-desc">A summer traffic campaign aimed straight at the booking page. Cheap, qualified visits turned into actual reservations across multiple months — the client renewed for a second 30-day run.</p>
-          <div class="card-viz"><svg viewBox="0 0 280 60"><rect x="0" y="20" width="60" height="30" rx="2" fill="var(--border2)"/><rect x="73" y="10" width="60" height="40" rx="2" fill="var(--border2)"/><rect x="146" y="0" width="60" height="50" rx="2" fill="var(--amber-dim)" stroke="var(--amber)"/><text x="176" y="-4" dy="14" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="var(--amber)">747+ visits</text><text x="0" y="58" font-family="JetBrains Mono" font-size="8" fill="var(--text3)">weeks 1–3</text></svg></div>
+          <div class="card-viz"><svg viewBox="0 0 280 60"><rect x="0" y="20" width="60" height="30" rx="2" fill="var(--border2)"/><rect x="73" y="10" width="60" height="40" rx="2" fill="var(--border2)"/><rect x="146" y="0" width="60" height="50" rx="2" fill="var(--amber-dim)" stroke="var(--amber)"/><text x="176" y="10" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="var(--amber)">747+ visits</text><text x="0" y="58" font-family="JetBrains Mono" font-size="8" fill="var(--text3)">weeks 1–3</text></svg></div>
           <div class="metrics"><span class="metric">$0.32 per landing page view</span><span class="metric">747+ visits</span><span class="metric">renewed for month two</span></div>
           <div class="tags"><span class="tag">Meta Ads</span><span class="tag">Traffic Campaigns</span><span class="tag">Airbnb</span></div>
         </div>
       </div>
       </div>
- 
+
     </div>
- 
+
     <!-- ROSTER -->
     <div class="roster reveal">
       <div class="roster-head">// more concurrent &amp; recent engagements</div>
@@ -472,7 +472,7 @@ footer a:hover{color:var(--amber);}
       <div class="roster-item"><span class="roster-name">ZYNELOOM</span><span class="roster-desc">Pakistani dropshipping store — recovered a disabled ad account and installed the Meta Pixel manually via theme.liquid.</span><span class="roster-status rs-done">completed</span></div>
     </div>
   </section>
- 
+
   <!-- ============ STACK ============ -->
   <section id="stack">
     <div class="section-tag reveal">core_stack</div>
@@ -484,7 +484,7 @@ footer a:hover{color:var(--amber);}
       <div class="stack-card"><div class="stack-cat ads">// production &amp; infra</div><div class="stack-tools">Python · FFmpeg / MoviePy · ElevenLabs · WhatsApp Cloud API · Twilio</div></div>
     </div>
   </section>
- 
+
   <!-- ============ BACKGROUND ============ -->
   <section id="background">
     <div class="section-tag reveal">background</div>
@@ -507,7 +507,7 @@ footer a:hover{color:var(--amber);}
       </div>
     </div>
   </section>
- 
+
   <!-- ============ CONTACT ============ -->
   <div class="terminal reveal" id="contact" style="margin:0 0 88px;">
     <div class="terminal-bar">
@@ -531,10 +531,10 @@ footer a:hover{color:var(--amber);}
       <div class="t-line"><span class="t-prompt">❯ </span><span class="cursor"></span></div>
     </div>
   </div>
- 
+
   <footer><p>mirzaumer.dev · built with intention · <a href="https://github.com/mirzaumerikram" target="_blank" rel="noopener">github</a> · <a href="https://www.linkedin.com/in/mirzaumerikram/" target="_blank" rel="noopener">linkedin</a> · <a href="https://www.fiverr.com/mirzaumerikram" target="_blank" rel="noopener">fiverr</a></p></footer>
 </div>
- 
+
 <script>
 /* ---------- background particle field ---------- */
 const canvas=document.getElementById('bgcanvas');
@@ -560,7 +560,7 @@ function drawBg(){
   if(!reduced) requestAnimationFrame(drawBg);
 }
 drawBg();
- 
+
 /* ---------- 3D orbit sphere ---------- */
 (function(){
   const orbit = document.getElementById('orbit');
@@ -577,7 +577,7 @@ drawBg();
     orbit.appendChild(el);
     return el;
   });
- 
+
   const N = nodes.length;
   const golden = Math.PI*(3-Math.sqrt(5));
   const pts = nodes.map((n,i)=>{
@@ -586,13 +586,13 @@ drawBg();
     const theta = golden*i;
     return { x: Math.cos(theta)*rY, y: y, z: Math.sin(theta)*rY };
   });
- 
+
   let rotY = 0.6, rotX = -0.3;
   let velY = 0.0016, velX = 0;
   let dragging = false, lastX=0, lastY=0;
   const R = 165;
   const FOCAL = 320;
- 
+
   function project(){
     const rect = orbit.getBoundingClientRect();
     const cx = rect.width/2, cy = rect.height/2;
@@ -614,7 +614,7 @@ drawBg();
       el.style.zIndex = Math.round((z2+2)*100);
     });
   }
- 
+
   function frame(){
     if(!dragging){
       rotY += velY;
@@ -624,7 +624,7 @@ drawBg();
     project();
     if(!reduced) requestAnimationFrame(frame);
   }
- 
+
   orbit.addEventListener('pointerdown', e=>{
     dragging = true; orbit.classList.add('dragging');
     lastX = e.clientX; lastY = e.clientY;
@@ -645,11 +645,11 @@ drawBg();
   }
   orbit.addEventListener('pointerup', release);
   orbit.addEventListener('pointerleave', ()=>{ if(dragging) release(); });
- 
+
   project();
   if(!reduced) requestAnimationFrame(frame);
 })();
- 
+
 /* ---------- card tilt ---------- */
 if(window.matchMedia('(hover: hover) and (pointer: fine)').matches && !reduced){
   document.querySelectorAll('.tiltcard').forEach(wrap=>{
@@ -663,7 +663,7 @@ if(window.matchMedia('(hover: hover) and (pointer: fine)').matches && !reduced){
     wrap.addEventListener('mouseleave', ()=>{ card.style.transform = 'rotateY(0deg) rotateX(0deg)'; });
   });
 }
- 
+
 /* ---------- filter ---------- */
 const filterBtns = document.querySelectorAll('.filter-btn');
 const cards = document.querySelectorAll('#cardGrid .tiltcard');
@@ -677,7 +677,7 @@ filterBtns.forEach(btn=>{
     });
   });
 });
- 
+
 /* ---------- reveal on scroll ---------- */
 const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.08});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
