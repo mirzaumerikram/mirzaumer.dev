@@ -8,6 +8,29 @@
 <link rel="canonical" href="https://mirzaumer.dev" />
 <meta property="og:title" content="Mirza Umer — AI Systems & Performance Marketing Engineer" />
 <meta property="og:url" content="https://mirzaumer.dev" />
+<meta property="og:type" content="profile" />
+<meta property="og:description" content="Final-year CS student who engineers AI automation systems and runs Meta/Google Ads infrastructure for Shopify brands." />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Mirza Umer — AI Systems & Performance Marketing Engineer" />
+<meta name="twitter:description" content="AI automation (n8n, LangChain, RAG) and Meta/Google Ads infrastructure for Shopify brands." />
+<meta name="theme-color" content="#06080B" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Mirza Umer",
+  "url": "https://mirzaumer.dev",
+  "jobTitle": "AI Systems & Performance Marketing Engineer",
+  "description": "Final-year Computer Science student and freelance AI automation & Meta/Google Ads specialist.",
+  "alumniOf": "University of Central Punjab",
+  "knowsAbout": ["Meta Ads", "Google Ads", "n8n", "LangChain", "LangGraph", "RAG", "ComfyUI", "Shopify"],
+  "sameAs": [
+    "https://www.fiverr.com/mirzaumerikram",
+    "https://www.linkedin.com/in/mirzaumerikram/",
+    "https://github.com/mirzaumerikram"
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -171,7 +194,25 @@ h2{font-family:var(--display);font-size:1.7rem;font-weight:600;letter-spacing:-0
 .tl-title{font-family:var(--display);font-weight:600;font-size:15.5px;color:var(--text);margin-bottom:3px;}
 .tl-desc{font-size:13.5px;color:var(--text2);line-height:1.7;max-width:560px;}
 
-/* ---------- TERMINAL ---------- */
+/* ---------- CALCULATOR ---------- */
+.calc-card{border:1px solid var(--border);border-radius:12px;background:var(--surface);padding:1.8rem;}
+.calc-row{display:flex;gap:1.4rem;flex-wrap:wrap;margin-bottom:1.3rem;}
+.calc-row label{flex:1;min-width:180px;font-family:var(--mono);font-size:11px;color:var(--text3);letter-spacing:0.03em;display:flex;flex-direction:column;gap:7px;}
+.calc-row input[type="number"]{background:var(--bg3);border:1px solid var(--border2);border-radius:6px;color:var(--text);font-family:var(--mono);font-size:14px;padding:9px 11px;width:100%;}
+.calc-row input[type="number"]:focus{outline:none;border-color:var(--amber);}
+.calc-row input[type="range"]{width:100%;accent-color:var(--amber);}
+.calc-target-label{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--text3);}
+.calc-target-label span{color:var(--amber);font-weight:600;}
+.calc-results{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1.2rem;}
+.calc-result{border:1px solid var(--border);border-radius:8px;padding:0.9rem;background:var(--bg3);text-align:center;}
+.calc-result.acc{border-color:rgba(255,154,71,0.35);background:var(--amber-dim);}
+.calc-num{font-family:var(--display);font-size:1.3rem;font-weight:600;color:var(--text);margin-bottom:3px;}
+.calc-result.acc .calc-num{color:var(--amber);}
+.calc-lbl{font-size:10.5px;color:var(--text3);letter-spacing:0.02em;}
+.calc-disclaimer{font-size:12px;color:var(--text3);line-height:1.6;}
+@media(max-width:640px){.calc-results{grid-template-columns:1fr;}}
+
+
 .terminal{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
 .terminal-bar{background:var(--bg3);padding:10px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border);}
 .dot{width:11px;height:11px;border-radius:50%;}
@@ -241,10 +282,10 @@ footer a:hover{color:var(--amber);}
           </a>
           <a class="btn-ghost" href="mailto:mirzaumerikram114@gmail.com">mirzaumerikram114@gmail.com</a>
         </div>
-        <div class="stat-row reveal">
-          <div class="stat"><div class="stat-num acc">4.9★</div><div class="stat-label">fiverr rating</div></div>
-          <div class="stat"><div class="stat-num">5.52x</div><div class="stat-label">peak retargeting ROAS</div></div>
-          <div class="stat"><div class="stat-num">5+</div><div class="stat-label">live engagements right now</div></div>
+        <div class="stat-row reveal" id="statRow">
+          <div class="stat"><div class="stat-num acc" data-count="4.9" data-suffix="★">0★</div><div class="stat-label">fiverr rating</div></div>
+          <div class="stat"><div class="stat-num" data-count="5.52" data-suffix="x">0x</div><div class="stat-label">peak retargeting ROAS</div></div>
+          <div class="stat"><div class="stat-num" data-count="5" data-suffix="">0</div><div class="stat-label">concurrent client accounts</div></div>
           <div class="stat"><div class="stat-num">final yr</div><div class="stat-label">BSCS · UCP Sialkot</div></div>
         </div>
         <div class="now-line"><span class="pulse"></span>Currently running active Meta Ads accounts in Canada, Australia, South Africa &amp; the US.</div>
@@ -543,6 +584,35 @@ footer a:hover{color:var(--amber);}
   </section>
 
   <!-- ============ STACK ============ -->
+  <!-- ============ CALCULATOR ============ -->
+  <section id="calculator">
+    <div class="section-tag reveal">quick_math</div>
+    <h2 class="reveal">What a CPM drop is actually worth.</h2>
+    <p class="section-lede reveal">A plain illustration of the arithmetic behind a number like "$87 → $32.50," not a forecast for your account — every account is different. Plug in your own numbers.</p>
+    <div class="calc-card reveal">
+      <div class="calc-row">
+        <label>monthly ad spend ($)
+          <input type="number" id="calcSpend" value="3000" min="0" step="100">
+        </label>
+        <label>current CPM ($)
+          <input type="number" id="calcCPM" value="60" min="1" step="1">
+        </label>
+      </div>
+      <div class="calc-row">
+        <label style="flex:1 1 100%;">
+          <span class="calc-target-label">target CPM <span id="calcTargetVal">$32</span></span>
+          <input type="range" id="calcTarget" min="5" max="120" value="32">
+        </label>
+      </div>
+      <div class="calc-results">
+        <div class="calc-result"><div class="calc-num" id="calcCurrentImpr">0</div><div class="calc-lbl">impressions today</div></div>
+        <div class="calc-result acc"><div class="calc-num" id="calcNewImpr">0</div><div class="calc-lbl">impressions at target CPM</div></div>
+        <div class="calc-result"><div class="calc-num" id="calcExtra">+0</div><div class="calc-lbl">extra impressions, same budget</div></div>
+      </div>
+      <p class="calc-disclaimer">// this is spend ÷ CPM × 1,000, nothing more. Real results depend on audience, creative, and competition — but it's a more honest way to feel what a CPM change actually does than just hearing the headline number.</p>
+    </div>
+  </section>
+
   <section id="stack">
     <div class="section-tag reveal">core_stack</div>
     <h2 class="reveal">Tool-agnostic. Right tool for the job.</h2>
@@ -750,6 +820,68 @@ filterBtns.forEach(btn=>{
 /* ---------- reveal on scroll ---------- */
 const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.08});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+/* ---------- count-up stats ---------- */
+(function(){
+  const statEls = document.querySelectorAll('.stat-num[data-count]');
+  if(!statEls.length) return;
+  function animate(el){
+    const target = parseFloat(el.dataset.count);
+    const suffix = el.dataset.suffix || '';
+    const decimals = (el.dataset.count.split('.')[1] || '').length;
+    const dur = 900;
+    const start = performance.now();
+    function step(now){
+      const p = Math.min(1, (now-start)/dur);
+      const eased = 1 - Math.pow(1-p, 3);
+      const val = target*eased;
+      el.textContent = val.toFixed(decimals) + suffix;
+      if(p < 1) requestAnimationFrame(step); else el.textContent = target.toFixed(decimals)+suffix;
+    }
+    if(reduced){ el.textContent = target.toFixed(decimals)+suffix; return; }
+    requestAnimationFrame(step);
+  }
+  const statObserver = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        statEls.forEach(animate);
+        statObserver.disconnect();
+      }
+    });
+  }, {threshold:0.4});
+  const row = document.getElementById('statRow');
+  if(row) statObserver.observe(row);
+})();
+
+/* ---------- CPM calculator ---------- */
+(function(){
+  const spendEl = document.getElementById('calcSpend');
+  const cpmEl = document.getElementById('calcCPM');
+  const targetEl = document.getElementById('calcTarget');
+  const targetVal = document.getElementById('calcTargetVal');
+  if(!spendEl) return;
+  const currentImprEl = document.getElementById('calcCurrentImpr');
+  const newImprEl = document.getElementById('calcNewImpr');
+  const extraEl = document.getElementById('calcExtra');
+
+  function fmt(n){ return Math.round(n).toLocaleString('en-US'); }
+
+  function update(){
+    const spend = Math.max(0, parseFloat(spendEl.value) || 0);
+    const cpm = Math.max(1, parseFloat(cpmEl.value) || 1);
+    const target = Math.max(1, parseFloat(targetEl.value) || 1);
+    targetVal.textContent = '$' + target;
+    const currentImpr = (spend/cpm)*1000;
+    const newImpr = (spend/target)*1000;
+    const extra = Math.max(0, newImpr - currentImpr);
+    currentImprEl.textContent = fmt(currentImpr);
+    newImprEl.textContent = fmt(newImpr);
+    extraEl.textContent = '+' + fmt(extra);
+  }
+  [spendEl, cpmEl, targetEl].forEach(el=>el.addEventListener('input', update));
+  update();
+})();
+
 </script>
 </body>
 </html>
