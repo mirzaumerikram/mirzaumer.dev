@@ -3,503 +3,684 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Mirza Umer — AI & Automation Engineer</title>
-<meta name="description" content="I engineer custom AI systems and backend automations that replace manual busywork — 24/7." />
+<title>Mirza Umer — AI Systems &amp; Performance Marketing Engineer</title>
+<meta name="description" content="Final-year CS student who engineers AI automation systems and runs Meta/Google Ads infrastructure for Shopify brands — pixels, agents, and the pipelines that keep both running." />
 <link rel="canonical" href="https://mirzaumer.dev" />
-<meta property="og:title" content="Mirza Umer — AI & Automation Engineer" />
+<meta property="og:title" content="Mirza Umer — AI Systems & Performance Marketing Engineer" />
 <meta property="og:url" content="https://mirzaumer.dev" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --teal:#00D4AA;--teal-dim:#00D4AA18;--teal-glow:#00D4AA44;
-  --bg:#080C0B;--bg2:#0D1412;--bg3:#101816;
-  --surface:#111918;--surface2:#162220;
-  --border:#1A2825;--border2:#22322E;
-  --text:#E8F0EE;--text2:#8BA39F;--text3:#4A6460;
-  --mono:'JetBrains Mono',monospace;--sans:'Inter',sans-serif;
+  --bg:#06080B; --bg2:#0A0D12; --bg3:#0E1218;
+  --surface:#10141A; --surface2:#151B22;
+  --border:#1C2229; --border2:#262E38;
+  --text:#ECEFF3; --text2:#8C94A1; --text3:#525964;
+ 
+  --amber:#FF9A47; --amber-dim:rgba(255,154,71,0.10); --amber-glow:rgba(255,154,71,0.32); --amber-deep:#C8702A;
+  --blue:#5DA9FF; --blue-dim:rgba(93,169,255,0.10); --blue-glow:rgba(93,169,255,0.32); --blue-deep:#3E72B8;
+ 
+  --sans:'Inter',sans-serif; --display:'Space Grotesk',sans-serif; --mono:'JetBrains Mono',monospace;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
-
-/* CANVAS BACKGROUND */
-#canvas-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.6;}
-
-/* CUSTOM CURSOR GLOW */
-.cursor-follower {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(0,212,170,0.08) 0%, rgba(0,212,170,0) 60%);
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-  mix-blend-mode: screen;
-  transition: opacity 0.3s ease;
-}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:60px;background:rgba(8,12,11,0.8);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
-.nav-logo{font-family:var(--mono);font-size:13px;color:var(--teal);text-decoration:none;letter-spacing:0.05em; transition: text-shadow 0.3s;}
-.nav-logo:hover{text-shadow: 0 0 10px var(--teal);}
-.nav-links{display:flex;gap:28px;}
-.nav-links a{font-size:13px;color:var(--text2);text-decoration:none;transition:color 0.2s;}
-.nav-links a:hover{color:var(--teal);}
-.nav-cta{font-family:var(--mono);font-size:12px;color:var(--teal);padding:7px 16px;border:1px solid var(--teal);border-radius:4px;text-decoration:none;transition:all 0.3s;letter-spacing:0.05em;}
-.nav-cta:hover{background:var(--teal-dim);box-shadow:0 0 20px var(--teal-glow); transform: translateY(-1px);}
-
-/* LAYOUT */
-.wrap{max-width:960px;margin:0 auto;padding:0 2rem;position:relative;z-index:1;}
-
-/* HERO */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:100px 0 60px;}
-.hero-pre{font-family:var(--mono);font-size:12px;color:var(--teal);letter-spacing:0.12em;margin-bottom:1.5rem;display:flex;align-items:center;gap:10px;}
-.hero-pre::before{content:'';width:24px;height:1px;background:var(--teal);}
-h1{font-size:clamp(2.2rem,5.5vw,4rem);font-weight:600;letter-spacing:-0.03em;line-height:1.1;margin-bottom:1.5rem;color:var(--text);}
-.accent{color:var(--teal); text-shadow: 0 0 15px rgba(0,212,170,0.3);}
-.hero-sub{font-size:17px;color:var(--text2);max-width:520px;line-height:1.75;margin-bottom:2.5rem;font-weight:300;}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
-.btn-primary{font-family:var(--mono);font-size:13px;color:var(--bg);background:var(--teal);padding:12px 24px;border-radius:4px;text-decoration:none;letter-spacing:0.04em;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px;}
-.btn-primary:hover{box-shadow:0 0 30px var(--teal-glow);transform:translateY(-2px);}
-.btn-ghost{font-family:var(--mono);font-size:12px;color:var(--text2);text-decoration:none;border:1px solid var(--border2);padding:12px 20px;border-radius:4px;transition:all 0.3s;}
-.btn-ghost:hover{color:var(--teal);border-color:var(--teal); background: var(--teal-dim);}
-
-/* STATS */
-.stats{display:flex;gap:0;border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-top:4rem; transition: transform 0.3s ease, box-shadow 0.3s ease;}
-.stats:hover{transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.5);}
-.stat{flex:1;padding:1.25rem 1.5rem;border-right:1px solid var(--border);background:var(--surface);}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden;}
+::selection{background:var(--amber-glow);color:#06080B;}
+ 
+#bgcanvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.4;}
+ 
+a{color:inherit;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 2rem;position:relative;z-index:1;}
+ 
+/* ---------- NAV ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:64px;background:rgba(6,8,11,0.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:var(--display);font-weight:600;font-size:15px;color:var(--text);text-decoration:none;letter-spacing:-0.01em;display:flex;align-items:center;gap:8px;}
+.nav-logo .dot{width:7px;height:7px;border-radius:50%;background:var(--amber);box-shadow:0 0 10px var(--amber-glow);}
+.nav-links{display:flex;gap:30px;}
+.nav-links a{font-size:13px;color:var(--text2);text-decoration:none;transition:color 0.2s;letter-spacing:0.01em;}
+.nav-links a:hover{color:var(--text);}
+.nav-cta{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--bg);background:var(--amber);padding:8px 16px;border-radius:5px;text-decoration:none;transition:all 0.2s;letter-spacing:0.02em;}
+.nav-cta:hover{box-shadow:0 0 22px var(--amber-glow);transform:translateY(-1px);}
+ 
+/* ---------- HERO ---------- */
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 60px;}
+.hero-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:2rem;align-items:center;width:100%;}
+.eyebrow{font-family:var(--mono);font-size:12px;color:var(--amber);letter-spacing:0.1em;margin-bottom:1.25rem;display:flex;align-items:center;gap:10px;text-transform:uppercase;}
+.eyebrow::before{content:'';width:22px;height:1px;background:var(--amber);}
+h1{font-family:var(--display);font-size:clamp(2.1rem,4.6vw,3.4rem);font-weight:600;letter-spacing:-0.02em;line-height:1.14;margin-bottom:1.4rem;color:var(--text);}
+h1 .a{color:var(--amber);}
+h1 .b{color:var(--blue);}
+.hero-sub{font-size:16.5px;color:var(--text2);max-width:520px;line-height:1.75;margin-bottom:1.9rem;font-weight:300;}
+.hero-sub strong{color:var(--text);font-weight:500;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:2.4rem;}
+.btn-primary{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--bg);background:var(--amber);padding:12px 22px;border-radius:6px;text-decoration:none;letter-spacing:0.02em;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px;}
+.btn-primary:hover{box-shadow:0 0 30px var(--amber-glow);transform:translateY(-1px);}
+.btn-ghost{font-family:var(--mono);font-size:12.5px;color:var(--text2);text-decoration:none;border:1px solid var(--border2);padding:12px 18px;border-radius:6px;transition:all 0.2s;letter-spacing:0.02em;}
+.btn-ghost:hover{color:var(--text);border-color:var(--text3);}
+ 
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:1rem;}
+.stat{padding:1rem 1.1rem;border-right:1px solid var(--border);background:var(--surface);}
 .stat:last-child{border-right:none;}
-.stat-num{font-family:var(--mono);font-size:1.8rem;font-weight:500;color:var(--teal);line-height:1;margin-bottom:4px; text-shadow: 0 0 10px rgba(0,212,170,0.2);}
-.stat-label{font-size:11px;color:var(--text3);letter-spacing:0.04em;}
-
-/* SECTIONS */
-section{padding:80px 0;}
-.section-tag{font-family:var(--mono);font-size:11px;color:var(--teal);letter-spacing:0.12em;margin-bottom:0.5rem;display:flex;align-items:center;gap:10px;}
-.section-tag::before{content:'';width:16px;height:1px;background:var(--teal);}
-h2{font-size:1.75rem;font-weight:600;letter-spacing:-0.02em;color:var(--text);margin-bottom:2.5rem;}
-
-/* PROJECT CARDS & SPOTLIGHT EFFECT */
-.projects{display:flex;flex-direction:column;gap:32px;}
-.project, .stack-card {
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:10px;
-  overflow:hidden;
-  transition:all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  position:relative;
-}
-/* Mouse Spotlight Overlay */
-.project::after, .stack-card::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(0,212,170,0.06), transparent 40%);
-  z-index: 2;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-.project:hover::after, .stack-card:hover::after {
-  opacity: 1;
-}
-/* Top Glow Line */
-.project::before, .stack-card::before {
-  content:'';
-  position:absolute;
-  top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,var(--teal),transparent);
-  opacity:0;
-  transition:opacity 0.4s;
-  z-index: 3;
-}
-.project:hover, .stack-card:hover {
-  border-color: rgba(0, 212, 170, 0.3);
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 20px rgba(0,212,170,0.05);
-}
-.project:hover::before, .stack-card:hover::before {
-  opacity:1;
-}
-
-/* BROWSER MOCKUP */
-.browser{background:#0A0F0E;border-bottom:1px solid var(--border); position: relative; z-index: 1;}
-.browser-bar{background:#0D1412;padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border);}
-.bdot{width:10px;height:10px;border-radius:50%;}
-.bdot-r{background:#FF5F57;}
-.bdot-y{background:#FFBD2E;}
-.bdot-g{background:#28C840;}
-.burl{font-family:var(--mono);font-size:11px;color:var(--text3);margin-left:10px;background:var(--bg3);padding:3px 12px;border-radius:3px;}
-.browser-img{width:100%;display:block;height:240px;object-fit:cover;object-position:top;background:#111918; transition: transform 0.5s ease;}
-.project:hover .browser-img { transform: scale(1.02); } /* Image slight zoom on hover */
-.img-container { overflow: hidden; }
-
-/* PROJECT BODY */
-.project-body{padding:1.75rem; position: relative; z-index: 1;}
-.project-meta{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.75rem;}
-.project-num{font-family:var(--mono);font-size:10px;color:var(--text3);}
-.project-title{font-size:17px;font-weight:600;color:var(--text);margin-bottom:4px;}
-.project-problem{font-family:var(--mono);font-size:12px;color:var(--text3);margin-bottom:0.75rem;}
-.project-desc{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:1.25rem;}
-.metrics{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1rem;}
-.metric{font-family:var(--mono);font-size:11px;color:var(--teal);background:var(--teal-dim);border:1px solid var(--border2);padding:4px 10px;border-radius:3px; transition: all 0.3s;}
-.metric:hover { background: rgba(0,212,170,0.15); border-color: var(--teal); }
+.stat-num{font-family:var(--display);font-size:1.5rem;font-weight:600;color:var(--text);line-height:1;margin-bottom:5px;}
+.stat-num.acc{color:var(--amber);}
+.stat-label{font-size:10.5px;color:var(--text3);letter-spacing:0.03em;}
+.now-line{font-family:var(--mono);font-size:11.5px;color:var(--text3);display:flex;align-items:center;gap:8px;}
+.now-line .pulse{width:6px;height:6px;border-radius:50%;background:var(--amber);box-shadow:0 0 8px var(--amber-glow);flex-shrink:0;}
+.now-line .pulse::after{content:'';}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.35}}
+.now-line .pulse{animation:pulse 2s ease-in-out infinite;}
+ 
+/* ---------- ORBIT (signature 3D element) ---------- */
+.orbit-wrap{position:relative;width:100%;aspect-ratio:1/1;max-width:460px;margin:0 auto;}
+#orbit{position:absolute;inset:0;cursor:grab;touch-action:none;}
+#orbit.dragging{cursor:grabbing;}
+.orbit-core{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px;border-radius:50%;background:radial-gradient(circle at 35% 30%, var(--surface2), var(--bg2));border:1px solid var(--border2);box-shadow:0 0 40px rgba(255,154,71,0.12),inset 0 0 18px rgba(0,0,0,0.5);z-index:5;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:9px;color:var(--text3);letter-spacing:0.05em;text-align:center;}
+.node{position:absolute;left:50%;top:50%;font-family:var(--mono);font-size:11px;white-space:nowrap;padding:5px 11px;border-radius:20px;border:1px solid var(--border2);background:var(--surface);will-change:transform,opacity;pointer-events:none;}
+.node.ai{color:var(--blue);border-color:rgba(93,169,255,0.35);box-shadow:0 0 16px rgba(93,169,255,0.08);}
+.node.ads{color:var(--amber);border-color:rgba(255,154,71,0.35);box-shadow:0 0 16px rgba(255,154,71,0.08);}
+.orbit-hint{text-align:center;font-family:var(--mono);font-size:10.5px;color:var(--text3);margin-top:0.6rem;letter-spacing:0.03em;}
+ 
+/* ---------- SECTIONS ---------- */
+section{padding:88px 0;}
+.section-tag{font-family:var(--mono);font-size:11px;color:var(--amber);letter-spacing:0.12em;margin-bottom:0.6rem;display:flex;align-items:center;gap:10px;text-transform:uppercase;}
+.section-tag::before{content:'';width:16px;height:1px;background:var(--amber);}
+.section-tag.b{color:var(--blue);}
+.section-tag.b::before{background:var(--blue);}
+h2{font-family:var(--display);font-size:1.7rem;font-weight:600;letter-spacing:-0.015em;color:var(--text);margin-bottom:0.7rem;}
+.section-lede{font-size:15px;color:var(--text2);max-width:620px;line-height:1.75;margin-bottom:2.6rem;font-weight:300;}
+ 
+/* ---------- TWO PILLARS ---------- */
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
+.pillar{position:relative;border:1px solid var(--border);border-radius:12px;padding:1.8rem;background:var(--surface);overflow:hidden;perspective:900px;}
+.pillar::before{content:'';position:absolute;top:0;left:0;right:0;height:90px;opacity:0.5;filter:blur(30px);}
+.pillar.blue::before{background:radial-gradient(circle,var(--blue),transparent 70%);}
+.pillar.amber::before{background:radial-gradient(circle,var(--amber),transparent 70%);}
+.pillar-tag{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.9rem;display:inline-block;padding:4px 10px;border-radius:20px;border:1px solid;}
+.pillar.blue .pillar-tag{color:var(--blue);border-color:rgba(93,169,255,0.35);background:var(--blue-dim);}
+.pillar.amber .pillar-tag{color:var(--amber);border-color:rgba(255,154,71,0.35);background:var(--amber-dim);}
+.pillar h3{font-family:var(--display);font-size:1.25rem;font-weight:600;margin-bottom:0.7rem;letter-spacing:-0.01em;}
+.pillar p{font-size:14px;color:var(--text2);line-height:1.75;margin-bottom:1rem;}
+.pillar-list{display:flex;flex-wrap:wrap;gap:6px;}
+.pillar-list span{font-family:var(--mono);font-size:11px;color:var(--text3);background:var(--bg3);border:1px solid var(--border);padding:3px 9px;border-radius:4px;}
+.tie-line{margin-top:1.6rem;padding:1.1rem 1.3rem;border:1px solid var(--border);border-radius:10px;background:linear-gradient(135deg, var(--blue-dim), var(--amber-dim));font-size:13.5px;color:var(--text2);line-height:1.7;}
+.tie-line strong{color:var(--text);font-weight:500;}
+ 
+/* ---------- FILTER TABS ---------- */
+.filters{display:flex;gap:10px;margin-bottom:2rem;flex-wrap:wrap;}
+.filter-btn{font-family:var(--mono);font-size:12px;color:var(--text2);background:var(--surface);border:1px solid var(--border);padding:8px 16px;border-radius:20px;cursor:pointer;transition:all 0.2s;letter-spacing:0.02em;}
+.filter-btn:hover{border-color:var(--border2);color:var(--text);}
+.filter-btn.active[data-f="all"]{background:var(--text);color:var(--bg);border-color:var(--text);}
+.filter-btn.active[data-f="ai"]{background:var(--blue);color:var(--bg);border-color:var(--blue);}
+.filter-btn.active[data-f="ads"]{background:var(--amber);color:var(--bg);border-color:var(--amber);}
+ 
+/* ---------- PROJECT CARDS (tilt) ---------- */
+.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.tiltcard{perspective:1100px;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:border-color 0.3s,box-shadow 0.3s;position:relative;transform-style:preserve-3d;will-change:transform;}
+.card.ai{--c:var(--blue);--cg:var(--blue-glow);--cd:var(--blue-dim);}
+.card.ads{--c:var(--amber);--cg:var(--amber-glow);--cd:var(--amber-dim);}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--c),transparent);opacity:0;transition:opacity 0.3s;}
+.card:hover{border-color:var(--border2);box-shadow:0 30px 60px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.02);}
+.card:hover::before{opacity:1;}
+.card-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--bg3);border-bottom:1px solid var(--border);transform:translateZ(0);}
+.cb-dot{width:8px;height:8px;border-radius:50%;}
+.cb-r{background:#FF5F57;}.cb-y{background:#FFBD2E;}.cb-g{background:#28C840;}
+.card-url{flex:1;font-family:var(--mono);font-size:10.5px;color:var(--text3);}
+.card-status{font-family:var(--mono);font-size:9.5px;padding:2px 7px;border-radius:10px;background:var(--cd);color:var(--c);letter-spacing:0.03em;}
+.card-body{padding:1.5rem;transform:translateZ(20px);}
+.card-tag{font-family:var(--mono);font-size:10px;color:var(--c);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;}
+.card-title{font-family:var(--display);font-size:17px;font-weight:600;color:var(--text);margin-bottom:5px;letter-spacing:-0.005em;}
+.card-problem{font-family:var(--mono);font-size:11.5px;color:var(--text3);margin-bottom:0.9rem;line-height:1.6;}
+.card-desc{font-size:13.5px;color:var(--text2);line-height:1.7;margin-bottom:1.1rem;}
+.card-viz{margin:0 0 1.1rem;}
+.card-viz svg{width:100%;height:auto;display:block;}
+.metrics{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:1rem;}
+.metric{font-family:var(--mono);font-size:10.5px;font-weight:500;color:var(--c);background:var(--cd);border:1px solid var(--border2);padding:4px 9px;border-radius:3px;letter-spacing:0.02em;}
 .tags{display:flex;gap:6px;flex-wrap:wrap;}
-.tag{font-family:var(--mono);font-size:11px;color:var(--text3);background:var(--bg3);border:1px solid var(--border);padding:3px 8px;border-radius:3px; transition: all 0.3s;}
-.tag:hover { color: var(--teal); border-color: var(--border2); }
-
-/* STACK */
-.stack-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border-radius:8px;overflow:hidden;border:1px solid var(--border);}
-.stack-card{background:var(--surface);padding:1.5rem;}
-.stack-cat{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--teal);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;}
-.stack-tools{font-size:13px;color:var(--text2);line-height:1.7;}
-
-/* FOOTER */
-footer{padding:3rem 0;text-align:center;font-family:var(--mono);font-size:12px;color:var(--text3);border-top:1px solid var(--border); margin-top: 80px;}
-footer a{color:var(--teal);text-decoration:none; transition: color 0.3s;}
-footer a:hover { color: #fff; text-shadow: 0 0 10px var(--teal); }
-
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);}
+.tag{font-family:var(--mono);font-size:10.5px;color:var(--text3);background:var(--bg3);border:1px solid var(--border);padding:3px 8px;border-radius:3px;}
+ 
+/* ---------- MORE ENGAGEMENTS ---------- */
+.roster{margin-top:2.4rem;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.roster-head{padding:1rem 1.4rem;border-bottom:1px solid var(--border);background:var(--surface);font-family:var(--mono);font-size:11.5px;color:var(--text3);letter-spacing:0.04em;}
+.roster-item{display:grid;grid-template-columns:160px 1fr 90px;gap:14px;align-items:center;padding:0.95rem 1.4rem;border-bottom:1px solid var(--border);font-size:13px;}
+.roster-item:last-child{border-bottom:none;}
+.roster-item:hover{background:var(--surface);}
+.roster-name{font-family:var(--display);font-weight:600;color:var(--text);font-size:13.5px;}
+.roster-desc{color:var(--text2);font-size:12.5px;line-height:1.5;}
+.roster-status{font-family:var(--mono);font-size:10px;text-align:right;letter-spacing:0.03em;padding:3px 8px;border-radius:10px;justify-self:end;}
+.rs-done{color:var(--text3);background:var(--bg3);}
+.rs-live{color:var(--amber);background:var(--amber-dim);}
+.rs-soon{color:var(--blue);background:var(--blue-dim);}
+ 
+/* ---------- STACK ---------- */
+.stack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:10px;overflow:hidden;border:1px solid var(--border);}
+.stack-card{background:var(--surface);padding:1.4rem 1.2rem;transition:background 0.2s;}
+.stack-card:hover{background:var(--surface2);}
+.stack-cat{font-family:var(--mono);font-size:10px;font-weight:600;color:var(--text);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:9px;}
+.stack-cat.ai{color:var(--blue);}
+.stack-cat.ads{color:var(--amber);}
+.stack-tools{font-size:12.5px;color:var(--text2);line-height:1.85;}
+ 
+/* ---------- TIMELINE ---------- */
+.timeline{border-left:1px solid var(--border2);padding-left:1.8rem;display:flex;flex-direction:column;gap:1.8rem;}
+.tl-item{position:relative;}
+.tl-item::before{content:'';position:absolute;left:-1.8rem;top:4px;width:9px;height:9px;border-radius:50%;background:var(--amber);box-shadow:0 0 10px var(--amber-glow);transform:translateX(-50%);}
+.tl-item.blue::before{background:var(--blue);box-shadow:0 0 10px var(--blue-glow);}
+.tl-era{font-family:var(--mono);font-size:11px;color:var(--text3);letter-spacing:0.04em;margin-bottom:3px;}
+.tl-title{font-family:var(--display);font-weight:600;font-size:15.5px;color:var(--text);margin-bottom:3px;}
+.tl-desc{font-size:13.5px;color:var(--text2);line-height:1.7;max-width:560px;}
+ 
+/* ---------- TERMINAL ---------- */
+.terminal{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.terminal-bar{background:var(--bg3);padding:10px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border);}
+.dot{width:11px;height:11px;border-radius:50%;}
+.dot-r{background:#FF5F57;}.dot-y{background:#FFBD2E;}.dot-g{background:#28C840;}
+.terminal-title{font-family:var(--mono);font-size:11.5px;color:var(--text3);margin:0 auto;}
+.terminal-body{padding:1.8rem;}
+.t-line{font-family:var(--mono);font-size:13.5px;line-height:2;color:var(--text2);}
+.t-prompt{color:var(--amber);}.t-cmd{color:var(--text);}.t-output{color:var(--text3);padding-left:1.5rem;}
+.t-link{color:var(--blue);text-decoration:none;}.t-link:hover{text-decoration:underline;}
+.cursor{display:inline-block;width:7px;height:13px;background:var(--amber);vertical-align:middle;animation:blink 1s step-end infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+ 
+footer{padding:2.2rem 0;text-align:center;font-family:var(--mono);font-size:11.5px;color:var(--text3);border-top:1px solid var(--border);}
+footer a{color:var(--text2);text-decoration:none;}
+footer a:hover{color:var(--amber);}
+ 
+.reveal{opacity:0;transform:translateY(18px);transition:opacity 0.6s ease,transform 0.6s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
-
-/* MOBILE */
+ 
+.typed-text{color:var(--amber);}
+ 
+@media(max-width:880px){
+  .hero-grid{grid-template-columns:1fr;}
+  .orbit-wrap{max-width:320px;margin-top:1rem;}
+  .pillars{grid-template-columns:1fr;}
+  .card-grid{grid-template-columns:1fr;}
+  .stack-grid{grid-template-columns:repeat(2,1fr);}
+  .stat-row{grid-template-columns:repeat(2,1fr);}
+  .stat:nth-child(2){border-right:none;}
+  .roster-item{grid-template-columns:1fr;gap:4px;}
+  .roster-status{justify-self:start;}
+}
 @media(max-width:640px){
-  nav{padding:0 1rem;}.nav-links{display:none;}
-  .wrap{padding:0 1.25rem;}
-  .stats{flex-direction:column;}
-  .stat{border-right:none;border-bottom:1px solid var(--border);}
-  .stat:last-child{border-bottom:none;}
-  .stack-grid{grid-template-columns:1fr;}
-  h1{font-size:2.1rem;}
-  .cursor-follower { display: none; } /* Hide follower on mobile */
+  nav{padding:0 1rem;}.nav-links{display:none;}.wrap{padding:0 1.25rem;}
+  h1{font-size:2rem;}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;}.reveal{opacity:1;transform:none;}}
-
-/* TYPEWRITER CURSOR BLINK */
-.cursor{display:inline-block;width:8px;height:14px;background:var(--teal);vertical-align:middle;animation:blink 1s step-end infinite; box-shadow: 0 0 10px var(--teal);}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
 </style>
 </head>
 <body>
-<!-- Canvas for Particle Background -->
-<canvas id="canvas-bg"></canvas>
-
+<canvas id="bgcanvas"></canvas>
+ 
 <nav>
-  <a class="nav-logo" href="#">mu.dev</a>
+  <a class="nav-logo" href="#"><span class="dot"></span>mirza.dev</a>
   <div class="nav-links">
     <a href="#work">work</a>
     <a href="#stack">stack</a>
+    <a href="#background">background</a>
+    <a href="#contact">contact</a>
   </div>
-  <a class="nav-cta" href="https://www.upwork.com/freelancers/~01cbf2591d36b6d93d" target="_blank">hire me</a>
+  <a class="nav-cta" href="https://www.fiverr.com/mirzaumerikram" target="_blank" rel="noopener">hire me</a>
 </nav>
-
+ 
 <div class="wrap">
-
-  <!-- HERO -->
+ 
+  <!-- ============ HERO ============ -->
   <div class="hero">
-    <div class="hero-pre">AI & Automation Engineer</div>
-    <h1>I build systems<br>that <span class="accent" id="typed">work while you sleep.</span><span class="cursor"></span></h1>
-    <p class="hero-sub">Not chatbots. Custom AI infrastructure that replaces manual busywork with reliable, scalable automations — running 24/7 without you.</p>
-    <div class="hero-actions">
-      <a class="btn-primary" href="https://www.upwork.com/freelancers/~01cbf2591d36b6d93d" target="_blank">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        view_upwork_profile
-      </a>
-      <a class="btn-ghost" href="mailto:mirzaumerikram114@gmail.com">mirzaumerikram114@gmail.com</a>
-    </div>
-    
-    <div class="stats reveal">
-      <div class="stat"><div class="stat-num">5+</div><div class="stat-label">systems shipped</div></div>
-      <div class="stat"><div class="stat-num">1,240</div><div class="stat-label">AI calls handled</div></div>
-      <div class="stat"><div class="stat-num">87%</div><div class="stat-label">booking success rate</div></div>
-      <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">autonomous uptime</div></div>
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">AI Systems &amp; Performance Marketing Engineer</div>
+        <h1>I build the <span class="a">AI agents</span> and the <span class="b">ad infrastructure</span><br>that keep growing Shopify brands running.</h1>
+        <p class="hero-sub">Final-year Computer Science student at UCP by day, freelance Meta Ads &amp; AI automation specialist the rest of the time. Most clients come to me with <strong>one</strong> broken thing — a pixel firing wrong, a manual workflow eating ten hours a week — and leave with a system that doesn't need me anymore.</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="https://www.fiverr.com/mirzaumerikram" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            view_fiverr_profile
+          </a>
+          <a class="btn-ghost" href="mailto:mirzaumerikram114@gmail.com">mirzaumerikram114@gmail.com</a>
+        </div>
+        <div class="stat-row reveal">
+          <div class="stat"><div class="stat-num acc">4.9★</div><div class="stat-label">fiverr rating</div></div>
+          <div class="stat"><div class="stat-num">5.52x</div><div class="stat-label">peak retargeting ROAS</div></div>
+          <div class="stat"><div class="stat-num">5+</div><div class="stat-label">live engagements right now</div></div>
+          <div class="stat"><div class="stat-num">final yr</div><div class="stat-label">BSCS · UCP Sialkot</div></div>
+        </div>
+        <div class="now-line"><span class="pulse"></span>Currently running active Meta Ads accounts in Canada, Australia, South Africa &amp; the US.</div>
+      </div>
+ 
+      <div>
+        <div class="orbit-wrap">
+          <div id="orbit">
+            <div class="orbit-core">the<br>stack</div>
+          </div>
+        </div>
+        <div class="orbit-hint">drag to rotate · blue = AI, amber = ads</div>
+      </div>
     </div>
   </div>
-
-  <!-- PROJECTS -->
+ 
+  <!-- ============ WHAT I DO ============ -->
+  <section id="approach">
+    <div class="section-tag reveal">two_disciplines</div>
+    <h2 class="reveal">Most freelancers do one of these. I do both, on purpose.</h2>
+    <p class="section-lede reveal">Ad accounts break because of broken engineering — a pixel that's not firing, a budget split that's strangling the winning audience, a manual step nobody automated. Treating both as one job is what actually fixes things.</p>
+ 
+    <div class="pillars reveal">
+      <div class="pillar blue">
+        <span class="pillar-tag">AI &amp; Automation</span>
+        <h3>Systems that run without me in the loop</h3>
+        <p>Voice and chat agents, RAG pipelines, and multi-step workflows built in n8n and LangGraph so the business doesn't depend on a human repeating the same task every day.</p>
+        <div class="pillar-list">
+          <span>n8n</span><span>LangGraph</span><span>Botpress</span><span>Voiceflow</span><span>RAG</span><span>Vapi</span>
+        </div>
+      </div>
+      <div class="pillar amber">
+        <span class="pillar-tag">Performance Marketing</span>
+        <h3>Ad accounts that are instrumented correctly</h3>
+        <p>Meta &amp; Google Ads for Shopify brands — pixel and Conversions API repair, audience structure, budget logic, and creative testing that turns into a real CPM drop.</p>
+        <div class="pillar-list">
+          <span>Meta Ads</span><span>Google Ads</span><span>Shopify</span><span>Pixel / CAPI</span><span>Audience Testing</span>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="tie-line reveal">Almost every Meta Ads engagement I take on starts the same way: <strong>the pixel is lying to the algorithm.</strong> Fixing that — Event Match Quality, CBO vs ABO, Conversions API — is automation work wearing a marketing hat.</div>
+  </section>
+ 
+  <!-- ============ SELECTED WORK ============ -->
   <section id="work">
-    <div class="section-tag reveal">selected_projects</div>
-    <h2 class="reveal">Real systems. Real results.</h2>
-    <div class="projects">
-
-      <!-- Project 1 -->
-      <div class="project reveal">
-        <div class="browser">
-          <div class="browser-bar">
-            <span class="bdot bdot-r"></span><span class="bdot bdot-y"></span><span class="bdot bdot-g"></span>
-            <span class="burl">app.vapi.ai — Sarah · Appointment Booking Agent</span>
-          </div>
-          <div class="img-container">
-            <img class="browser-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200&h=400" alt="Dashboard">
-          </div>
-        </div>
-        <div class="project-body">
-          <div class="project-meta">
-            <h3 class="project-title">Autonomous Patient Booking Agent</h3>
-            <span class="project-num">01</span>
-          </div>
-          <div class="project-problem">Problem: After-hours inquiries were lost; high call center costs.</div>
-          <p class="project-desc">A custom AI agent trained exclusively on clinic documentation using RAG. It answers complex patient questions safely and integrates directly with Google Calendar to book or reschedule appointments dynamically over the phone.</p>
-          <div class="metrics">
-            <span class="metric">24/7 Uptime</span>
-            <span class="metric">Zero double-bookings</span>
-          </div>
-          <div class="tags">
-            <span class="tag">Botpress</span>
-            <span class="tag">Make.com</span>
-            <span class="tag">Google Calendar API</span>
-          </div>
+    <div class="section-tag reveal">selected_work</div>
+    <h2 class="reveal">Real engagements. Real numbers.</h2>
+    <p class="section-lede reveal">Filter by discipline, or look at all of it — it's usually the same client either way.</p>
+ 
+    <div class="filters reveal">
+      <button class="filter-btn active" data-f="all">all work</button>
+      <button class="filter-btn" data-f="ai">ai &amp; automation</button>
+      <button class="filter-btn" data-f="ads">performance marketing</button>
+    </div>
+ 
+    <div class="card-grid reveal" id="cardGrid">
+ 
+      <!-- AI 1 -->
+      <div class="tiltcard" data-cat="ai">
+      <div class="card ai">
+        <div class="card-bar"><span class="cb-dot cb-r"></span><span class="cb-dot cb-y"></span><span class="cb-dot cb-g"></span><span class="card-url">app.vapi.ai — appointment booking agent</span><span class="card-status">demo build</span></div>
+        <div class="card-body">
+          <div class="card-tag">Voice AI</div>
+          <div class="card-title">Voice Agent for Inbound Appointment Booking</div>
+          <div class="card-problem">// a clinic was paying for a 24/7 receptionist it barely needed</div>
+          <p class="card-desc">Built a voice agent that answers, qualifies the caller, and books the slot directly into the calendar — no hold music, no after-hours staffing cost.</p>
+          <div class="card-viz"><svg viewBox="0 0 280 60"><polyline points="0,50 35,44 70,38 105,30 140,26 175,18 210,14 245,9 280,6" fill="none" stroke="var(--blue)" stroke-width="2.5"/><circle cx="280" cy="6" r="3.5" fill="var(--blue)"/></svg></div>
+          <div class="metrics"><span class="metric">1,240 calls handled</span><span class="metric">87% booking success</span><span class="metric">0 after-hours cost</span></div>
+          <div class="tags"><span class="tag">Vapi</span><span class="tag">Voice AI</span><span class="tag">RAG</span></div>
         </div>
       </div>
-
-      <!-- Project 2 -->
-      <div class="project reveal">
-        <div class="browser">
-          <div class="browser-bar">
-            <span class="bdot bdot-r"></span><span class="bdot bdot-y"></span><span class="bdot bdot-g"></span>
-            <span class="burl">n8n.cloud — Omnichannel Support & Triage Router</span>
-          </div>
-          <div class="img-container">
-            <img class="browser-img" src="https://images.unsplash.com/photo-1618401471353-b98a5233c591?auto=format&fit=crop&q=80&w=1200&h=400" alt="n8n Workflow">
-          </div>
-        </div>
-        <div class="project-body">
-          <div class="project-meta">
-            <h3 class="project-title">Omnichannel AI Support Router</h3>
-            <span class="project-num">02</span>
-          </div>
-          <div class="project-problem">Problem: Overwhelming ticket volume across SMS, WhatsApp, and Email.</div>
-          <p class="project-desc">Architected a centralized routing system that intercepts incoming messages, determines user intent via OpenAI, and responds automatically. Escalates high-ticket sales or frustrated users to human agents with full conversation history.</p>
-          <div class="metrics">
-            <span class="metric">60% reduction in tickets</span>
-            <span class="metric">Instant Tier-1 response</span>
-          </div>
-          <div class="tags">
-            <span class="tag">n8n</span>
-            <span class="tag">OpenAI API</span>
-            <span class="tag">Twilio</span>
-            <span class="tag">WhatsApp API</span>
-          </div>
+      </div>
+ 
+      <!-- AI 2 -->
+      <div class="tiltcard" data-cat="ai">
+      <div class="card ai">
+        <div class="card-bar"><span class="cb-dot cb-r"></span><span class="cb-dot cb-y"></span><span class="cb-dot cb-g"></span><span class="card-url">app.botpress.com — support bot · flow editor</span><span class="card-status">demo build</span></div>
+        <div class="card-body">
+          <div class="card-tag">Chat Automation</div>
+          <div class="card-title">E-commerce Support Agent</div>
+          <div class="card-problem">// support inbox drowning in the same pricing &amp; sizing questions</div>
+          <p class="card-desc">A Botpress agent that answers product, shipping, and order questions instantly, and hands off to a human the moment a conversation needs one.</p>
+          <div class="card-viz"><svg viewBox="0 0 280 60"><circle cx="50" cy="30" r="22" fill="none" stroke="var(--border2)" stroke-width="8"/><circle cx="50" cy="30" r="22" fill="none" stroke="var(--blue)" stroke-width="8" stroke-dasharray="83 138" transform="rotate(-90 50 30)"/><text x="50" y="35" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="var(--blue)">60%</text><text x="100" y="34" font-family="JetBrains Mono" font-size="10" fill="var(--text3)">ticket volume, down</text></svg></div>
+          <div class="metrics"><span class="metric">↓ 60% support tickets</span><span class="metric">instant first response</span><span class="metric">seamless handoff</span></div>
+          <div class="tags"><span class="tag">Botpress</span><span class="tag">Shopify</span><span class="tag">Automation</span></div>
         </div>
       </div>
-
-      <!-- Project 3 -->
-      <div class="project reveal">
-        <div class="browser">
-          <div class="browser-bar">
-            <span class="bdot bdot-r"></span><span class="bdot bdot-y"></span><span class="bdot bdot-g"></span>
-            <span class="burl">whatsapp.com — Zero-Touch Proforma Invoice Generator</span>
-          </div>
-          <div class="img-container">
-            <img class="browser-img" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200&h=400" alt="Code">
-          </div>
-        </div>
-        <div class="project-body">
-          <div class="project-meta">
-            <h3 class="project-title">Zero-Touch Proforma Invoice Generator</h3>
-            <span class="project-num">03</span>
-          </div>
-          <div class="project-problem">Problem: Sales reps wasted 15m+ per order manually creating invoices.</div>
-          <p class="project-desc">Designed an n8n webhook architecture listening for WhatsApp triggers. It pulls customer/product data from the CRM, dynamically generates a PDF invoice, and automatically replies to the customer with the attachment.</p>
-          <div class="metrics">
-            <span class="metric">15m → 3s generation</span>
-            <span class="metric">100% error elimination</span>
-          </div>
-          <div class="tags">
-            <span class="tag">n8n</span>
-            <span class="tag">WhatsApp Cloud API</span>
-            <span class="tag">Stripe API</span>
-          </div>
+      </div>
+ 
+      <!-- AI 3 -->
+      <div class="tiltcard" data-cat="ai">
+      <div class="card ai">
+        <div class="card-bar"><span class="cb-dot cb-r"></span><span class="cb-dot cb-y"></span><span class="cb-dot cb-g"></span><span class="card-url">chatwoot — lead qualification &amp; quote agent</span><span class="card-status">demo build</span></div>
+        <div class="card-body">
+          <div class="card-tag">Lead Automation</div>
+          <div class="card-title">Lead Qualification &amp; Quote Agent</div>
+          <div class="card-problem">// sales reps manually qualifying chats and typing out quotes</div>
+          <p class="card-desc">The agent asks the qualifying questions, prices the job on the spot, and only loops in a rep once there's a real lead to close.</p>
+          <div class="card-viz"><svg viewBox="0 0 280 60"><rect x="0" y="22" width="60" height="16" rx="4" fill="var(--bg3)" stroke="var(--border2)"/><text x="30" y="33" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--text2)">chat</text><line x1="60" y1="30" x2="100" y2="30" stroke="var(--border2)"/><rect x="100" y="22" width="80" height="16" rx="4" fill="var(--blue-dim)" stroke="var(--blue)"/><text x="140" y="33" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--blue)">qualify+quote</text><line x1="180" y1="30" x2="220" y2="30" stroke="var(--border2)"/><rect x="220" y="22" width="60" height="16" rx="4" fill="var(--bg3)" stroke="var(--border2)"/><text x="250" y="33" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--text2)">close</text></svg></div>
+          <div class="metrics"><span class="metric">instant quote</span><span class="metric">auto lead capture</span><span class="metric">zero rep time, pre-close</span></div>
+          <div class="tags"><span class="tag">Chatwoot</span><span class="tag">Lead Gen</span><span class="tag">Automation</span></div>
         </div>
       </div>
-
+      </div>
+ 
+      <!-- AI 4 -->
+      <div class="tiltcard" data-cat="ai">
+      <div class="card ai">
+        <div class="card-bar"><span class="cb-dot cb-r"></span><span class="cb-dot cb-y"></span><span class="cb-dot cb-g"></span><span class="card-url">pam-contract-ai-agent.vercel.app</span><span class="card-status">live</span></div>
+        <div class="card-body">
+          <div class="card-tag">RAG / Legal AI</div>
+          <div class="card-title">PAM Contract AI — Legal Consultant Agent</div>
+          <div class="card-problem">// legal teams spending hours interpreting PAM 2006 contract clauses</div>
+          <p class="card-desc">A RAG agent trained only on the PAM 2006 contract — handles clause interpretation, EOT claims, and retention rules behind a gated client login, deployed on Vercel.</p>
+          <div class="card-viz"><svg viewBox="0 0 280 60"><rect x="0" y="18" width="50" height="24" rx="3" fill="var(--bg3)" stroke="var(--border2)"/><text x="25" y="33" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="var(--text2)">contract</text><line x1="50" y1="30" x2="110" y2="30" stroke="var(--border2)" stroke-dasharray="3 3"/><rect x="110" y="18" width="60" height="24" rx="3" fill="var(--blue-dim)" stroke="var(--blue)"/><text x="140" y="33" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="var(--blue)">vector db</text><line x1="170" y1="30" x2="220" y2="30" stroke="var(--border2)" stroke-dasharray="3 3"/><rect x="220" y="18" width="60" height="24" rx="3" fill="var(--bg3)" stroke="var(--border2)"/><text x="250" y="33" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="var(--text2)">answer</text></svg></div>
+          <div class="metrics"><span class="metric">live on Vercel</span><span class="metric">RAG on legal docs</span><span class="metric">premium client logins</span></div>
+          <div class="tags"><span class="tag">LangChain</span><span class="tag">RAG</span><span class="tag">Vercel</span><span class="tag">Claude</span></div>
+        </div>
+      </div>
+      </div>
+ 
+      <!-- AI 5 - R&D -->
+      <div class="tiltcard" data-cat="ai">
+      <div class="card ai">
+        <div class="card-bar"><span class="cb-dot cb-r"></span><span class="cb-dot cb-y"></span><span class="cb-dot cb-g"></span><span class="card-url">comfyui — local · RunPod A100</span><span class="card-status">R&amp;D, ongoing</span></div>
+        <div class="card-body">
+          <div class="card-tag">Personal R&amp;D</div>
+          <div class="card-title">AI Avatar &amp; Video Generation Pipeline</div>
+          <div class="card-problem">// can a proprietary pipeline replace HeyGen at a fraction of the cost?</div>
+          <p class="card-desc">Trained a custom LoRA on RunPod (6,000 steps, A100) for a WAN 2.2 image-to-video model, then built the ComfyUI workflow around it. Evaluated LatentSync, Wav2Lip, MuseTalk and Sync.so for lip sync — Sync.so won the early rounds.</p>
+          <div class="card-viz"><svg viewBox="0 0 280 40"><g font-family="JetBrains Mono" font-size="8" fill="var(--text2)">
+            <rect x="0" y="10" width="50" height="20" rx="3" fill="var(--bg3)" stroke="var(--border2)"/><text x="25" y="23" text-anchor="middle">image</text>
+            <rect x="58" y="10" width="50" height="20" rx="3" fill="var(--blue-dim)" stroke="var(--blue)"/><text x="83" y="23" text-anchor="middle" fill="var(--blue)">LoRA</text>
+            <rect x="116" y="10" width="58" height="20" rx="3" fill="var(--bg3)" stroke="var(--border2)"/><text x="145" y="23" text-anchor="middle">ComfyUI</text>
+            <rect x="182" y="10" width="58" height="20" rx="3" fill="var(--blue-dim)" stroke="var(--blue)"/><text x="211" y="23" text-anchor="middle" fill="var(--blue)">lip sync</text>
+            <rect x="248" y="10" width="32" height="20" rx="3" fill="var(--bg3)" stroke="var(--border2)"/><text x="264" y="23" text-anchor="middle">out</text>
+          </g></svg></div>
+          <div class="metrics"><span class="metric">WAN 2.2 I2V</span><span class="metric">custom LoRA · A100</span><span class="metric">4 lip-sync models tested</span></div>
+          <div class="tags"><span class="tag">ComfyUI</span><span class="tag">LoRA Training</span><span class="tag">RunPod</span><span class="tag">Diffusion</span></div>
+        </div>
+      </div>
+      </div>
+ 
+      <!-- ADS 1 -->
+      <div class="tiltcard" data-cat="ads">
+      <div class="card ads">
+        <div class="card-bar"><span class="cb-dot cb-r"></span><span class="cb-dot cb-y"></span><span class="cb-dot cb-g"></span><span class="card-url">business.facebook.com — Plume Science · Ads Manager</span><span class="card-status">completed</span></div>
+        <div class="card-body">
+          <div class="card-tag">Meta Ads · Canada</div>
+          <div class="card-title">Plume Science — BOF Retargeting Build</div>
+          <div class="card-problem">// warm traffic was being treated like cold traffic</div>
+          <p class="card-desc">Split bottom-of-funnel retargeting into three precise audiences and let the data show which one actually deserved the budget. Ran alongside Google Ads PMax compliance work on the same account.</p>
+          <div class="card-viz"><svg viewBox="0 0 280 70">
+            <text x="0" y="14" font-family="JetBrains Mono" font-size="9" fill="var(--text3)">ROAS by audience</text>
+            <rect x="0" y="20" width="200" height="12" rx="2" fill="var(--amber)"/><text x="208" y="29" font-family="JetBrains Mono" font-size="9" fill="var(--amber)">5.52x</text><text x="0" y="20" dy="-2" font-family="JetBrains Mono" font-size="8" fill="var(--text3)"></text>
+            <rect x="0" y="38" width="110" height="12" rx="2" fill="var(--border2)"/><text x="118" y="47" font-family="JetBrains Mono" font-size="9" fill="var(--text3)">PDP 14d</text>
+            <rect x="0" y="56" width="70" height="12" rx="2" fill="var(--border2)"/><text x="78" y="65" font-family="JetBrains Mono" font-size="9" fill="var(--text3)">All visitors 30d</text>
+          </svg></div>
+          <div class="metrics"><span class="metric">5.52x ROAS · cart abandoners 7d</span><span class="metric">3-tier retargeting</span><span class="metric">PMax compliance migration</span></div>
+          <div class="tags"><span class="tag">Meta Ads</span><span class="tag">Google Ads</span><span class="tag">Retargeting</span><span class="tag">CAPI</span></div>
+        </div>
+      </div>
+      </div>
+ 
+      <!-- ADS 2 -->
+      <div class="tiltcard" data-cat="ads">
+      <div class="card ads">
+        <div class="card-bar"><span class="cb-dot cb-r"></span><span class="cb-dot cb-y"></span><span class="cb-dot cb-g"></span><span class="card-url">business.facebook.com — Vordele · Ads Manager</span><span class="card-status">completed</span></div>
+        <div class="card-body">
+          <div class="card-tag">Meta Ads · Apparel</div>
+          <div class="card-title">Vordele — Creative Testing Into a Scale Campaign</div>
+          <div class="card-problem">// no idea which of the catalog's products would actually sell</div>
+          <p class="card-desc">A 7-day test isolated two winning dresses out of the full catalog. The follow-up campaign, optimized for Add to Cart, took the CPM from "expensive guess" to "this works."</p>
+          <div class="card-viz"><svg viewBox="0 0 280 60"><polyline points="0,12 50,16 100,26 150,36 200,46 250,52 280,54" fill="none" stroke="var(--amber)" stroke-width="2.5"/><text x="0" y="9" font-family="JetBrains Mono" font-size="9" fill="var(--text3)">CPM, day 1 → day 7</text><text x="0" y="20" font-family="JetBrains Mono" font-size="9" fill="var(--text2)">$87</text><text x="250" y="58" font-family="JetBrains Mono" font-size="9" fill="var(--amber)">$32.50</text></svg></div>
+          <div class="metrics"><span class="metric">8.55% CTR</span><span class="metric">CPM $87 → $32.50</span><span class="metric">2 winning creatives in 7 days</span></div>
+          <div class="tags"><span class="tag">Meta Ads</span><span class="tag">Shopify</span><span class="tag">Creative Testing</span></div>
+        </div>
+      </div>
+      </div>
+ 
+      <!-- ADS 3 -->
+      <div class="tiltcard" data-cat="ads">
+      <div class="card ads">
+        <div class="card-bar"><span class="cb-dot cb-r"></span><span class="cb-dot cb-y"></span><span class="cb-dot cb-g"></span><span class="card-url">business.facebook.com — Petnivo · Events Manager</span><span class="card-status">completed</span></div>
+        <div class="card-body">
+          <div class="card-tag">Meta Ads · Pet Products</div>
+          <div class="card-title">Petnivo — Pixel Repair &amp; Warm Audience Build</div>
+          <div class="card-problem">// the pixel's Event Match Quality was too low for the algorithm to learn</div>
+          <p class="card-desc">Fixed the Event Match Quality issue, corrected the budget structure from CBO to ABO so spend stopped starving the winning ad set, and built warm audiences across three markets.</p>
+          <div class="card-viz"><svg viewBox="0 0 280 50"><rect x="0" y="14" width="80" height="20" rx="3" fill="var(--bg3)" stroke="var(--border2)"/><text x="40" y="27" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="var(--text2)">US</text><rect x="90" y="14" width="80" height="20" rx="3" fill="var(--bg3)" stroke="var(--border2)"/><text x="130" y="27" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="var(--text2)">UK</text><rect x="180" y="14" width="100" height="20" rx="3" fill="var(--amber-dim)" stroke="var(--amber)"/><text x="230" y="27" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="var(--amber)">Canada</text></svg></div>
+          <div class="metrics"><span class="metric">EMQ pixel fix</span><span class="metric">CBO → ABO correction</span><span class="metric">32+ ATC across US/UK/CA</span></div>
+          <div class="tags"><span class="tag">Meta Ads</span><span class="tag">Pixel / EMQ</span><span class="tag">Shopify</span></div>
+        </div>
+      </div>
+      </div>
+ 
+      <!-- ADS 4 -->
+      <div class="tiltcard" data-cat="ads">
+      <div class="card ads">
+        <div class="card-bar"><span class="cb-dot cb-r"></span><span class="cb-dot cb-y"></span><span class="cb-dot cb-g"></span><span class="card-url">business.facebook.com — Beverly Stays · Ads Manager</span><span class="card-status">renewed</span></div>
+        <div class="card-body">
+          <div class="card-tag">Meta Ads · Travel / Airbnb</div>
+          <div class="card-title">Beverly Stays — Traffic Campaign for Direct Bookings</div>
+          <div class="card-problem">// a Phoenix Airbnb host needed eyes on the listing, not just likes</div>
+          <p class="card-desc">A summer traffic campaign aimed straight at the booking page. Cheap, qualified visits turned into actual reservations across multiple months — the client renewed for a second 30-day run.</p>
+          <div class="card-viz"><svg viewBox="0 0 280 60"><rect x="0" y="20" width="60" height="30" rx="2" fill="var(--border2)"/><rect x="73" y="10" width="60" height="40" rx="2" fill="var(--border2)"/><rect x="146" y="0" width="60" height="50" rx="2" fill="var(--amber-dim)" stroke="var(--amber)"/><text x="176" y="-4" dy="14" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="var(--amber)">747+ visits</text><text x="0" y="58" font-family="JetBrains Mono" font-size="8" fill="var(--text3)">weeks 1–3</text></svg></div>
+          <div class="metrics"><span class="metric">$0.32 per landing page view</span><span class="metric">747+ visits</span><span class="metric">renewed for month two</span></div>
+          <div class="tags"><span class="tag">Meta Ads</span><span class="tag">Traffic Campaigns</span><span class="tag">Airbnb</span></div>
+        </div>
+      </div>
+      </div>
+ 
+    </div>
+ 
+    <!-- ROSTER -->
+    <div class="roster reveal">
+      <div class="roster-head">// more concurrent &amp; recent engagements</div>
+      <div class="roster-item"><span class="roster-name">Novara Studio</span><span class="roster-desc">Canadian streetwear — Carousel ad emerged as the top performer at $15 CAD/day.</span><span class="roster-status rs-done">completed</span></div>
+      <div class="roster-item"><span class="roster-name">Luxurella</span><span class="roster-desc">South African beauty &amp; wellness devices — 10-week retainer, $88/week, currently in setup.</span><span class="roster-status rs-live">ongoing</span></div>
+      <div class="roster-item"><span class="roster-name">thomas25co</span><span class="roster-desc">Australian agency — managed shivadesigns.co and ran a full pixel audit for Heritage Day Spa.</span><span class="roster-status rs-done">completed</span></div>
+      <div class="roster-item"><span class="roster-name">VSNN</span><span class="roster-desc">US streetwear drop — awareness campaign reached 46,000+ people; resolved a Commerce Manager pixel permissions issue with Meta support.</span><span class="roster-status rs-done">completed</span></div>
+      <div class="roster-item"><span class="roster-name">GRYT Hair Care</span><span class="roster-desc">Launch strategy order — fixed a pixel mismatch and built a broad-USA campaign optimized for Add to Cart.</span><span class="roster-status rs-done">completed</span></div>
+      <div class="roster-item"><span class="roster-name">Milton's — Unfound Harmony</span><span class="roster-desc">14-day streetwear launch campaign, gearing up for a late-June drop.</span><span class="roster-status rs-soon">upcoming</span></div>
+      <div class="roster-item"><span class="roster-name">ZYNELOOM</span><span class="roster-desc">Pakistani dropshipping store — recovered a disabled ad account and installed the Meta Pixel manually via theme.liquid.</span><span class="roster-status rs-done">completed</span></div>
     </div>
   </section>
-
-  <!-- STACK -->
+ 
+  <!-- ============ STACK ============ -->
   <section id="stack">
     <div class="section-tag reveal">core_stack</div>
-    <h2 class="reveal">Tool agnostic.<br>Architecture first.</h2>
+    <h2 class="reveal">Tool-agnostic. Right tool for the job.</h2>
     <div class="stack-grid reveal">
-      <div class="stack-card">
-        <div class="stack-cat">Orchestration</div>
-        <div class="stack-tools">n8n • Make.com • Zapier • Custom Webhooks</div>
+      <div class="stack-card"><div class="stack-cat ads">// ads &amp; commerce</div><div class="stack-tools">Meta Ads Manager · Google Ads (PMax) · Shopify · GoHighLevel</div></div>
+      <div class="stack-card"><div class="stack-cat ai">// automation &amp; agents</div><div class="stack-tools">n8n · LangGraph · Botpress · Voiceflow</div></div>
+      <div class="stack-card"><div class="stack-cat ai">// ai &amp; models</div><div class="stack-tools">OpenAI &amp; Claude APIs · RAG / Pinecone · ComfyUI · LoRA training</div></div>
+      <div class="stack-card"><div class="stack-cat ads">// production &amp; infra</div><div class="stack-tools">Python · FFmpeg / MoviePy · ElevenLabs · WhatsApp Cloud API · Twilio</div></div>
+    </div>
+  </section>
+ 
+  <!-- ============ BACKGROUND ============ -->
+  <section id="background">
+    <div class="section-tag reveal">background</div>
+    <h2 class="reveal">How I got here.</h2>
+    <div class="timeline reveal">
+      <div class="tl-item">
+        <div class="tl-era">2026 · Final Year</div>
+        <div class="tl-title">BS Computer Science — University of Central Punjab</div>
+        <div class="tl-desc">Sialkot Campus, class BSCS8B. Coursework spanning Android development (Kotlin), parallel &amp; distributed computing, and professional ethics — alongside running a full freelance practice on the side.</div>
       </div>
-      <div class="stack-card">
-        <div class="stack-cat">AI & Logic</div>
-        <div class="stack-tools">OpenAI (GPT-4o) • Anthropic (Claude) • LangChain • RAG</div>
+      <div class="tl-item blue">
+        <div class="tl-era">Previously · Remote</div>
+        <div class="tl-title">AI Engineer — Evren AI, Lahore</div>
+        <div class="tl-desc">Worked on production AI systems, including the early phases of the AI avatar generation pipeline now continued as personal R&amp;D.</div>
       </div>
-      <div class="stack-card">
-        <div class="stack-cat">Conversational</div>
-        <div class="stack-tools">Botpress • Voiceflow • WhatsApp API • Twilio</div>
-      </div>
-      <div class="stack-card">
-        <div class="stack-cat">Data & Integrations</div>
-        <div class="stack-tools">GoHighLevel • HubSpot • Airtable • Google Workspace</div>
+      <div class="tl-item">
+        <div class="tl-era">Ongoing</div>
+        <div class="tl-title">Freelance AI &amp; Performance Marketing — Fiverr</div>
+        <div class="tl-desc">Level 1 Seller, 4.9★, mostly repeat international clients. Meta Ads is the core converting service; AI &amp; automation gigs are the growing half of the business.</div>
       </div>
     </div>
   </section>
-
+ 
+  <!-- ============ CONTACT ============ -->
+  <div class="terminal reveal" id="contact" style="margin:0 0 88px;">
+    <div class="terminal-bar">
+      <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+      <span class="terminal-title">mirza-umer ~ contact</span>
+    </div>
+    <div class="terminal-body">
+      <div class="t-line"><span class="t-prompt">❯ </span><span class="t-cmd">whoami</span></div>
+      <div class="t-line t-output">Mirza Umer — AI Systems &amp; Performance Marketing Engineer · Sialkot, PK / Remote</div>
+      <div class="t-line"><span class="t-prompt">❯ </span><span class="t-cmd">cat services.txt</span></div>
+      <div class="t-line t-output">Meta &amp; Google Ads · AI Voice/Chat Agents · n8n &amp; LangGraph Automation</div>
+      <div class="t-line t-output">RAG Systems · Pixel/CAPI Repair · Shopify Integration</div>
+      <div class="t-line"><span class="t-prompt">❯ </span><span class="t-cmd">open fiverr</span></div>
+      <div class="t-line t-output">→ <a class="t-link" href="https://www.fiverr.com/mirzaumerikram" target="_blank" rel="noopener">fiverr.com/mirzaumerikram</a></div>
+      <div class="t-line"><span class="t-prompt">❯ </span><span class="t-cmd">open linkedin</span></div>
+      <div class="t-line t-output">→ <a class="t-link" href="https://www.linkedin.com/in/mirzaumerikram/" target="_blank" rel="noopener">linkedin.com/in/mirzaumerikram</a></div>
+      <div class="t-line"><span class="t-prompt">❯ </span><span class="t-cmd">open github</span></div>
+      <div class="t-line t-output">→ <a class="t-link" href="https://github.com/mirzaumerikram" target="_blank" rel="noopener">github.com/mirzaumerikram</a></div>
+      <div class="t-line"><span class="t-prompt">❯ </span><span class="t-cmd">send email</span></div>
+      <div class="t-line t-output">→ <a class="t-link" href="mailto:mirzaumerikram114@gmail.com">mirzaumerikram114@gmail.com</a></div>
+      <div class="t-line"><span class="t-prompt">❯ </span><span class="cursor"></span></div>
+    </div>
+  </div>
+ 
+  <footer><p>mirzaumer.dev · built with intention · <a href="https://github.com/mirzaumerikram" target="_blank" rel="noopener">github</a> · <a href="https://www.linkedin.com/in/mirzaumerikram/" target="_blank" rel="noopener">linkedin</a> · <a href="https://www.fiverr.com/mirzaumerikram" target="_blank" rel="noopener">fiverr</a></p></footer>
 </div>
-
-<footer>
-  <p>© 2026 Mirza Umer. <br>Built with purpose.</p>
-</footer>
-
+ 
 <script>
-  // --- 1. Cursor Glow Follower ---
-  const follower = document.createElement('div');
-  follower.className = 'cursor-follower';
-  document.body.appendChild(follower);
-
-  let mouseX = window.innerWidth / 2;
-  let mouseY = window.innerHeight / 2;
-  let followerX = mouseX;
-  let followerY = mouseY;
-
-  window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
+/* ---------- background particle field ---------- */
+const canvas=document.getElementById('bgcanvas');
+const ctx=canvas.getContext('2d');
+let W,H,particles=[];
+const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+resize();window.addEventListener('resize',resize);
+const COUNT=46;
+for(let i=0;i<COUNT;i++){particles.push({x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,vx:(Math.random()-0.5)*0.25,vy:(Math.random()-0.5)*0.25,r:Math.random()*1.4+0.5,c: i%2===0?'255,154,71':'93,169,255'});}
+function drawBg(){
+  ctx.clearRect(0,0,W,H);
+  for(let i=0;i<particles.length;i++){
+    const p=particles[i];p.x+=p.vx;p.y+=p.vy;
+    if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle='rgba('+p.c+',0.55)';ctx.fill();
+    for(let j=i+1;j<particles.length;j++){
+      const q=particles[j];const d=Math.hypot(p.x-q.x,p.y-q.y);
+      if(d<115){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.strokeStyle='rgba(140,148,161,'+(0.08*(1-d/115))+')';ctx.lineWidth=0.5;ctx.stroke();}
+    }
+  }
+  if(!reduced) requestAnimationFrame(drawBg);
+}
+drawBg();
+ 
+/* ---------- 3D orbit sphere ---------- */
+(function(){
+  const orbit = document.getElementById('orbit');
+  const nodes = [
+    {label:'n8n', cat:'ai'}, {label:'LangGraph', cat:'ai'}, {label:'Botpress', cat:'ai'},
+    {label:'Voiceflow', cat:'ai'}, {label:'RAG', cat:'ai'}, {label:'ComfyUI', cat:'ai'},
+    {label:'LoRA', cat:'ai'}, {label:'Python', cat:'ai'},
+    {label:'Meta Ads', cat:'ads'}, {label:'Google Ads', cat:'ads'}, {label:'Shopify', cat:'ads'}, {label:'Pinecone', cat:'ads'}
+  ];
+  const els = nodes.map(n=>{
+    const el = document.createElement('div');
+    el.className = 'node '+n.cat;
+    el.textContent = n.label;
+    orbit.appendChild(el);
+    return el;
   });
-
-  function animateCursor() {
-    followerX += (mouseX - followerX) * 0.15; // Ease factor
-    followerY += (mouseY - followerY) * 0.15;
-    follower.style.transform = `translate(${followerX - 200}px, ${followerY - 200}px)`; // offset by half width/height
-    requestAnimationFrame(animateCursor);
-  }
-  animateCursor();
-
-  // --- 2. Dynamic Spotlight Effect on Cards ---
-  const cards = document.querySelectorAll('.project, .stack-card');
-  document.addEventListener('mousemove', e => {
-    for(const card of cards) {
-      const rect = card.getBoundingClientRect(),
-            x = e.clientX - rect.left,
-            y = e.clientY - rect.top;
-      card.style.setProperty("--mouse-x", `${x}px`);
-      card.style.setProperty("--mouse-y", `${y}px`);
-    }
+ 
+  const N = nodes.length;
+  const golden = Math.PI*(3-Math.sqrt(5));
+  const pts = nodes.map((n,i)=>{
+    const y = 1 - (i/(N-1))*2;
+    const rY = Math.sqrt(Math.max(0,1-y*y));
+    const theta = golden*i;
+    return { x: Math.cos(theta)*rY, y: y, z: Math.sin(theta)*rY };
   });
-
-  // --- 3. Canvas Particle Network (After Effects Style) ---
-  const canvas = document.getElementById('canvas-bg');
-  const ctx = canvas.getContext('2d');
-  let width, height, particles;
-
-  function initCanvas() {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-    particles = [];
-    const particleCount = window.innerWidth < 768 ? 20 : 60; // Less particles on mobile
-    
-    for(let i=0; i<particleCount; i++) {
-      particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        radius: Math.random() * 1.5 + 0.5
-      });
-    }
-  }
-
-  function drawCanvas() {
-    ctx.clearRect(0, 0, width, height);
-    
-    particles.forEach(p => {
-      p.x += p.vx;
-      p.y += p.vy;
-      
-      // Bounce off walls
-      if(p.x < 0 || p.x > width) p.vx *= -1;
-      if(p.y < 0 || p.y > height) p.vy *= -1;
-      
-      // Draw Dot
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(0, 212, 170, 0.4)';
-      ctx.fill();
-    });
-    
-    // Draw Lines connecting nearby dots
-    ctx.lineWidth = 0.5;
-    for(let i=0; i<particles.length; i++) {
-      for(let j=i+1; j<particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const dist = Math.sqrt(dx*dx + dy*dy);
-        
-        if(dist < 150) {
-          // Dynamic opacity based on distance
-          ctx.strokeStyle = `rgba(0, 212, 170, ${0.1 - (dist/150)*0.1})`;
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.stroke();
-        }
-      }
-    }
-    requestAnimationFrame(drawCanvas);
-  }
-
-  window.addEventListener('resize', initCanvas);
-  initCanvas();
-  drawCanvas();
-
-  // --- 4. Simple Reveal Animation on Scroll ---
-  const reveals = document.querySelectorAll('.reveal');
-  function checkReveal() {
-    const windowHeight = window.innerHeight;
-    const elementVisible = 100;
-    reveals.forEach(reveal => {
-      const elementTop = reveal.getBoundingClientRect().top;
-      if (elementTop < windowHeight - elementVisible) {
-        reveal.classList.add('visible');
-      }
+ 
+  let rotY = 0.6, rotX = -0.3;
+  let velY = 0.0016, velX = 0;
+  let dragging = false, lastX=0, lastY=0;
+  const R = 165;
+  const FOCAL = 320;
+ 
+  function project(){
+    const rect = orbit.getBoundingClientRect();
+    const cx = rect.width/2, cy = rect.height/2;
+    const cosY=Math.cos(rotY), sinY=Math.sin(rotY);
+    const cosX=Math.cos(rotX), sinX=Math.sin(rotX);
+    pts.forEach((p,i)=>{
+      let x1 = p.x*cosY + p.z*sinY;
+      let z1 = -p.x*sinY + p.z*cosY;
+      let y1 = p.y;
+      let y2 = y1*cosX - z1*sinX;
+      let z2 = y1*sinX + z1*cosX;
+      const x2 = x1;
+      const scale = FOCAL/(FOCAL - z2*R*0.9);
+      const sx = x2*R*scale, sy = y2*R*scale;
+      const opacity = Math.max(0.28, Math.min(1, (z2+1.1)/2.1));
+      const el = els[i];
+      el.style.transform = `translate(-50%,-50%) translate(${sx}px,${sy}px) scale(${Math.max(0.55,Math.min(1.25,scale*0.92))})`;
+      el.style.opacity = opacity;
+      el.style.zIndex = Math.round((z2+2)*100);
     });
   }
-  window.addEventListener('scroll', checkReveal);
-  checkReveal(); // Trigger once on load
-
-  // --- 5. Typewriter Effect ---
-  const texts = ["work while you sleep.", "scale without headcount.", "eliminate manual data entry."];
-  let count = 0;
-  let index = 0;
-  let currentText = "";
-  let letter = "";
-  let isDeleting = false;
-  
-  (function type(){
-    if(count === texts.length) { count = 0; }
-    currentText = texts[count];
-    
-    if(isDeleting){
-      letter = currentText.slice(0, --index);
-    } else {
-      letter = currentText.slice(0, ++index);
+ 
+  function frame(){
+    if(!dragging){
+      rotY += velY;
+      rotX += velX;
+      velX *= 0.94;
     }
-    
-    document.getElementById('typed').textContent = letter;
-    
-    let typeSpeed = isDeleting ? 30 : 80;
-    
-    if(!isDeleting && letter.length === currentText.length){
-      typeSpeed = 2500; // Pause at end of word
-      isDeleting = true;
-    } else if(isDeleting && letter.length === 0){
-      isDeleting = false;
-      count++;
-      typeSpeed = 500; // Pause before new word
-    }
-    
-    setTimeout(type, typeSpeed);
-  }());
+    project();
+    if(!reduced) requestAnimationFrame(frame);
+  }
+ 
+  orbit.addEventListener('pointerdown', e=>{
+    dragging = true; orbit.classList.add('dragging');
+    lastX = e.clientX; lastY = e.clientY;
+    orbit.setPointerCapture(e.pointerId);
+  });
+  orbit.addEventListener('pointermove', e=>{
+    if(!dragging) return;
+    const dx = e.clientX - lastX, dy = e.clientY - lastY;
+    rotY += dx*0.008; rotX += dy*0.008;
+    rotX = Math.max(-1.1, Math.min(1.1, rotX));
+    velY = dx*0.0009;
+    lastX = e.clientX; lastY = e.clientY;
+    project();
+  });
+  function release(){
+    dragging = false; orbit.classList.remove('dragging');
+    if(Math.abs(velY) < 0.0016) velY = velY >= 0 ? 0.0016 : -0.0016;
+  }
+  orbit.addEventListener('pointerup', release);
+  orbit.addEventListener('pointerleave', ()=>{ if(dragging) release(); });
+ 
+  project();
+  if(!reduced) requestAnimationFrame(frame);
+})();
+ 
+/* ---------- card tilt ---------- */
+if(window.matchMedia('(hover: hover) and (pointer: fine)').matches && !reduced){
+  document.querySelectorAll('.tiltcard').forEach(wrap=>{
+    const card = wrap.querySelector('.card');
+    wrap.addEventListener('mousemove', e=>{
+      const r = wrap.getBoundingClientRect();
+      const px = (e.clientX - r.left)/r.width - 0.5;
+      const py = (e.clientY - r.top)/r.height - 0.5;
+      card.style.transform = `rotateY(${px*7}deg) rotateX(${-py*7}deg)`;
+    });
+    wrap.addEventListener('mouseleave', ()=>{ card.style.transform = 'rotateY(0deg) rotateX(0deg)'; });
+  });
+}
+ 
+/* ---------- filter ---------- */
+const filterBtns = document.querySelectorAll('.filter-btn');
+const cards = document.querySelectorAll('#cardGrid .tiltcard');
+filterBtns.forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    filterBtns.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.f;
+    cards.forEach(c=>{
+      c.style.display = (f==='all' || c.dataset.cat===f) ? '' : 'none';
+    });
+  });
+});
+ 
+/* ---------- reveal on scroll ---------- */
+const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
 </body>
 </html>
