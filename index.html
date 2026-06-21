@@ -72,6 +72,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .nav-links{display:flex;gap:30px;}
 .nav-links a{font-size:13px;color:var(--text2);text-decoration:none;transition:color 0.2s;letter-spacing:0.01em;}
 .nav-links a:hover{color:var(--text);}
+.nav-links a{position:relative;}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--amber);transition:width 0.25s;}
+.nav-links a.nav-active{color:var(--text);}
+.nav-links a.nav-active::after{width:100%;}
 .nav-cta{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--bg);background:var(--amber);padding:8px 16px;border-radius:5px;text-decoration:none;transition:box-shadow 0.2s;letter-spacing:0.02em;position:relative;overflow:hidden;display:inline-block;}
 .nav-cta:hover{box-shadow:0 0 22px var(--amber-glow);}
 .nav-cta::before{content:'';position:absolute;width:120px;height:120px;left:var(--mx,50%);top:var(--my,50%);transform:translate(-50%,-50%);background:radial-gradient(circle, rgba(0,0,0,0.18), transparent 70%);opacity:0;transition:opacity 0.25s;pointer-events:none;}
@@ -120,7 +124,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .orbit-hint{text-align:center;font-family:var(--mono);font-size:10.5px;color:var(--text3);margin-top:0.6rem;letter-spacing:0.03em;}
 
 /* ---------- SECTIONS ---------- */
-section{padding:88px 0;}
+section{padding:64px 0;}
 .section-tag{font-family:var(--mono);font-size:11px;color:var(--amber);letter-spacing:0.12em;margin-bottom:0.6rem;display:flex;align-items:center;gap:10px;text-transform:uppercase;}
 .section-tag::before{content:'';width:16px;height:1px;background:var(--amber);}
 .section-tag.b{color:var(--blue);}
@@ -216,7 +220,9 @@ h2{font-family:var(--display);font-size:1.7rem;font-weight:600;letter-spacing:-0
 .cb-dot{width:8px;height:8px;border-radius:50%;}
 .cb-r{background:#FF5F57;}.cb-y{background:#FFBD2E;}.cb-g{background:#28C840;}
 .card-url{flex:1;font-family:var(--mono);font-size:10.5px;color:var(--text3);}
-.card-status{font-family:var(--mono);font-size:9.5px;padding:2px 7px;border-radius:10px;background:var(--cd);color:var(--c);letter-spacing:0.03em;}
+.card-status{font-family:var(--mono);font-size:9.5px;padding:2px 7px;border-radius:10px;background:var(--cd);color:var(--c);letter-spacing:0.03em;display:inline-flex;align-items:center;gap:5px;}
+.status-pulse{width:5px;height:5px;border-radius:50%;background:var(--c);box-shadow:0 0 6px var(--c);animation:statusPulse 1.8s ease-in-out infinite;flex-shrink:0;}
+@keyframes statusPulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
 .card-body{padding:1.5rem;transform:translateZ(20px);}
 .card-tag{font-family:var(--mono);font-size:10px;color:var(--c);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;}
 .card-title{font-family:var(--display);font-size:17px;font-weight:600;color:var(--text);margin-bottom:5px;letter-spacing:-0.005em;}
@@ -228,6 +234,10 @@ h2{font-family:var(--display);font-size:1.7rem;font-weight:600;letter-spacing:-0
 .metric{font-family:var(--mono);font-size:10.5px;font-weight:500;color:var(--c);background:var(--cd);border:1px solid var(--border2);padding:4px 9px;border-radius:3px;letter-spacing:0.02em;}
 .tags{display:flex;gap:6px;flex-wrap:wrap;}
 .tag{font-family:var(--mono);font-size:10.5px;color:var(--text3);background:var(--bg3);border:1px solid var(--border);padding:3px 8px;border-radius:3px;}
+
+.card-more{margin-top:0.9rem;font-family:var(--mono);font-size:11px;color:var(--c);background:none;border:none;padding:0;cursor:pointer;text-decoration:underline;}
+.card-expand{max-height:0;overflow:hidden;opacity:0;transition:max-height 0.3s ease,opacity 0.3s ease,margin-top 0.3s ease;font-size:12.5px;color:var(--text2);line-height:1.65;margin-top:0;}
+.card-expand.open{max-height:220px;opacity:1;margin-top:0.7rem;}
 
 /* ---------- MORE ENGAGEMENTS ---------- */
 .roster{margin-top:2.4rem;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
@@ -260,6 +270,25 @@ h2{font-family:var(--display);font-size:1.7rem;font-weight:600;letter-spacing:-0
 .tl-title{font-family:var(--display);font-weight:600;font-size:15.5px;color:var(--text);margin-bottom:3px;}
 .tl-desc{font-size:13.5px;color:var(--text2);line-height:1.7;max-width:560px;}
 
+.gh-card{margin-top:2rem;border:1px solid var(--border);border-radius:12px;background:var(--surface);overflow:hidden;}
+.gh-card-body{padding:1.3rem 1.4rem;display:flex;align-items:center;justify-content:space-between;gap:1.4rem;flex-wrap:wrap;}
+.gh-card-text{font-size:13px;color:var(--text2);line-height:1.6;max-width:480px;}
+@media(max-width:640px){.gh-card-body{flex-direction:column;align-items:flex-start;}}
+
+/* ---------- TESTIMONIALS ---------- */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.testi-card{border:1px solid var(--border);border-radius:12px;background:var(--surface);padding:1.5rem;transition:border-color 0.25s,transform 0.25s;}
+.testi-card:hover{border-color:var(--border2);transform:translateY(-3px);}
+.testi-stars{color:var(--amber);font-size:13px;letter-spacing:2px;margin-bottom:0.7rem;}
+.testi-quote{font-size:13.5px;color:var(--text2);line-height:1.7;margin-bottom:1.1rem;}
+.testi-meta{display:flex;align-items:center;gap:7px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;}
+.testi-name{color:var(--text);font-weight:600;}
+.testi-sep{color:var(--text3);}
+.testi-flag{color:var(--text3);}
+.testi-tag{font-size:9.5px;color:var(--amber);background:var(--amber-dim);border:1px solid rgba(215,255,61,0.3);padding:1px 7px;border-radius:9px;margin-left:auto;}
+@media(max-width:880px){.testi-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:640px){.testi-grid{grid-template-columns:1fr;}}
+
 /* ---------- CALCULATOR ---------- */
 .calc-card{border:1px solid var(--border);border-radius:12px;background:var(--surface);padding:1.8rem;}
 .calc-row{display:flex;gap:1.4rem;flex-wrap:wrap;margin-bottom:1.3rem;}
@@ -279,6 +308,15 @@ h2{font-family:var(--display);font-size:1.7rem;font-weight:600;letter-spacing:-0
 @media(max-width:640px){.calc-results{grid-template-columns:1fr;}}
 
 
+.quickform{border:1px solid var(--border);border-radius:12px;background:var(--surface);padding:1.6rem;margin-bottom:1.4rem;}
+.qf-head{font-family:var(--mono);font-size:11px;color:var(--text3);margin-bottom:1rem;}
+.qf-row{display:flex;gap:12px;margin-bottom:12px;}
+.quickform input,.quickform textarea{flex:1;background:var(--bg3);border:1px solid var(--border2);border-radius:6px;color:var(--text);font-family:var(--sans);font-size:13.5px;padding:10px 12px;width:100%;resize:vertical;}
+.quickform input:focus,.quickform textarea:focus{outline:none;border-color:var(--amber);}
+.quickform textarea{display:block;margin-bottom:14px;}
+.quickform .btn-primary{border:none;cursor:pointer;font-size:13px;}
+@media(max-width:640px){.qf-row{flex-direction:column;}}
+
 .terminal{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
 .terminal-bar{background:var(--bg3);padding:10px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border);}
 .dot{width:11px;height:11px;border-radius:50%;}
@@ -288,6 +326,9 @@ h2{font-family:var(--display);font-size:1.7rem;font-weight:600;letter-spacing:-0
 .t-line{font-family:var(--mono);font-size:13.5px;line-height:2;color:var(--text2);}
 .t-prompt{color:var(--amber);}.t-cmd{color:var(--text);}.t-output{color:var(--text3);padding-left:1.5rem;}
 .t-link{color:var(--blue);text-decoration:none;}.t-link:hover{text-decoration:underline;}
+.copy-btn{font-family:var(--mono);font-size:10px;color:var(--text3);background:transparent;border:1px solid var(--border2);border-radius:4px;padding:2px 8px;margin-left:6px;cursor:pointer;transition:all 0.15s;vertical-align:middle;}
+.copy-btn:hover{color:var(--text);border-color:var(--text3);}
+.copy-btn.copied{color:var(--amber);border-color:var(--amber);}
 .cursor{display:inline-block;width:7px;height:13px;background:var(--amber);vertical-align:middle;animation:blink 1s step-end infinite;}
 .eyebrow .cursor{margin-left:-6px;}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
@@ -344,7 +385,7 @@ footer a:hover{color:var(--amber);}
         <h1 class="hero-intro reveal">Hi, I'm <span class="name">Mirza Umer Ikram</span>.</h1>
         <div class="eyebrow"><span id="typedRole">AI Systems &amp; Performance Marketing Engineer</span><span class="cursor"></span></div>
         <p class="hero-headline">I build the <span class="a">AI agents</span> and the <span class="b">ad infrastructure</span><br>that keep growing Shopify brands running.</p>
-        <p class="hero-sub">Final-year Computer Science student at UCP by day, freelance Meta Ads &amp; AI automation specialist the rest of the time. Most clients come to me with <strong>one</strong> broken thing — a pixel firing wrong, a manual workflow eating ten hours a week — and leave with a system that doesn't need me anymore.</p>
+        <p class="hero-sub">Machine Learning Engineer at Evren AI, building production RAG agents and automation pipelines, while running Meta Ads and AI automation work for Shopify brands on the side. Most clients come to me with <strong>one</strong> broken thing — a pixel firing wrong, a manual workflow eating ten hours a week — and leave with a system that doesn't need me anymore.</p>
         <div class="hero-actions">
           <a class="btn-primary" href="https://www.fiverr.com/mirzaumerikram" target="_blank" rel="noopener">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -607,6 +648,8 @@ footer a:hover{color:var(--amber);}
           <div class="card-viz"><svg viewBox="0 0 280 60"><rect x="0" y="18" width="50" height="24" rx="3" fill="var(--bg3)" stroke="var(--border2)"/><text x="25" y="33" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="var(--text2)">contract</text><line x1="50" y1="30" x2="110" y2="30" stroke="var(--border2)" stroke-dasharray="3 3"/><rect x="110" y="18" width="60" height="24" rx="3" fill="var(--blue-dim)" stroke="var(--blue)"/><text x="140" y="33" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="var(--blue)">vector db</text><line x1="170" y1="30" x2="220" y2="30" stroke="var(--border2)" stroke-dasharray="3 3"/><rect x="220" y="18" width="60" height="24" rx="3" fill="var(--bg3)" stroke="var(--border2)"/><text x="250" y="33" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="var(--text2)">answer</text></svg></div>
           <div class="metrics"><span class="metric">live on Vercel</span><span class="metric">RAG on legal docs</span><span class="metric">premium client logins</span></div>
           <div class="tags"><span class="tag">LangChain</span><span class="tag">RAG</span><span class="tag">Vercel</span><span class="tag">Claude</span></div>
+          <button class="card-more" type="button">+ how it works</button>
+          <div class="card-expand">Deployed as a forked, production build of the agent originally built at Evren AI. LangChain handles retrieval over the PAM 2006 contract text, Claude generates the answer, and the whole thing sits behind a gated login for premium clients on Vercel.</div>
         </div>
       </div>
       </div>
@@ -629,6 +672,8 @@ footer a:hover{color:var(--amber);}
           </g></svg></div>
           <div class="metrics"><span class="metric">WAN 2.2 I2V</span><span class="metric">custom LoRA · A100</span><span class="metric">4 lip-sync models tested</span></div>
           <div class="tags"><span class="tag">ComfyUI</span><span class="tag">LoRA Training</span><span class="tag">RunPod</span><span class="tag">Diffusion</span></div>
+          <button class="card-more" type="button">+ how it works</button>
+          <div class="card-expand">The LoRA trained for 6,000 steps on an A100, landing at a final loss around 0.048. Lip sync took several rounds to get right. LatentSync caused distortion, Wav2Lip synced but with quality issues, MuseTalk had dependency conflicts. Sync.so gave the cleanest early results.</div>
         </div>
       </div>
       </div>
@@ -652,6 +697,8 @@ footer a:hover{color:var(--amber);}
           </svg></div>
           <div class="metrics"><span class="metric">watches 5+ live accounts</span><span class="metric">LLM-drafted fix proposals</span><span class="metric">human approval before it touches spend</span></div>
           <div class="tags"><span class="tag">n8n</span><span class="tag">LLM Agent</span><span class="tag">Meta API</span><span class="tag">Ops</span></div>
+          <button class="card-more" type="button">+ how it works</button>
+          <div class="card-expand">The workflow polls each live account on a schedule and checks Event Match Quality and budget pacing against set thresholds. When something drifts, an LLM step drafts a plain language diagnosis and a proposed fix, and sends it to me, nothing touches actual spend until I approve it.</div>
         </div>
       </div>
       </div>
@@ -833,24 +880,84 @@ footer a:hover{color:var(--amber);}
     <h2 class="reveal">How I got here.</h2>
     <div class="timeline reveal">
       <div class="tl-item">
-        <div class="tl-era">2026 · Final Year</div>
-        <div class="tl-title">BS Computer Science — University of Central Punjab</div>
-        <div class="tl-desc">Sialkot Campus, class BSCS8B. Coursework spanning Android development (Kotlin), parallel &amp; distributed computing, and professional ethics — alongside running a full freelance practice on the side.</div>
+        <div class="tl-era">2026, Final Year</div>
+        <div class="tl-title">BS Computer Science, University of Central Punjab</div>
+        <div class="tl-desc">Sialkot Campus, class BSCS8B. Coursework spanning Android development (Kotlin), parallel and distributed computing, and professional ethics, alongside running a full freelance practice on the side.</div>
       </div>
       <div class="tl-item blue">
-        <div class="tl-era">Previously · Remote</div>
-        <div class="tl-title">AI Engineer — Evren AI, Lahore</div>
-        <div class="tl-desc">Worked on production AI systems, including the early phases of the AI avatar generation pipeline now continued as personal R&amp;D.</div>
+        <div class="tl-era">August 2025 to Present</div>
+        <div class="tl-title">Machine Learning Engineer, Evren AI, Lahore</div>
+        <div class="tl-desc">Started as an AI Engineering Intern, promoted to Associate AI Engineer, now Machine Learning Engineer. Built a RAG based legal agent, a controlled response medical chatbot, an AI mediation platform, an exam question generation pipeline, and the LoRA based AI avatar pipeline shown above.</div>
       </div>
       <div class="tl-item">
         <div class="tl-era">Ongoing</div>
-        <div class="tl-title">Freelance AI &amp; Performance Marketing — Fiverr</div>
-        <div class="tl-desc">Level 1 Seller, 4.9★, mostly repeat international clients. Meta Ads is the core converting service; AI &amp; automation gigs are the growing half of the business.</div>
+        <div class="tl-title">Freelance AI and Performance Marketing, Fiverr</div>
+        <div class="tl-desc">Level 2 Seller, 4.9 star rating, mostly repeat international clients. Meta Ads is the core converting service. AI and automation gigs are the growing half of the business.</div>
+      </div>
+    </div>
+
+    <div class="gh-card reveal">
+      <div class="card-bar"><span class="cb-dot cb-r"></span><span class="cb-dot cb-y"></span><span class="cb-dot cb-g"></span><span class="card-url">github.com/mirzaumerikram</span></div>
+      <div class="gh-card-body">
+        <div class="gh-card-text">Real repos, real commits. SAFORA, the LangGraph plus MCP agent template, RAG pipelines, and everything else shown above all live there.</div>
+        <a class="btn-ghost" href="https://github.com/mirzaumerikram" target="_blank" rel="noopener">open github →</a>
       </div>
     </div>
   </section>
 
+  <!-- ============ TESTIMONIALS ============ -->
+  <section id="testimonials">
+    <div class="section-tag reveal">client_words</div>
+    <h2 class="reveal">Real reviews, not paraphrased.</h2>
+    <p class="section-lede reveal">Pulled straight from Fiverr. Unedited.</p>
+    <div class="testi-grid reveal">
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">I highly recommend this fiver. mirzaumerikram understood what needed to be done better than I did. His work order was far more in depth than what I anticipated. He had great knowledge about Thrivecart. If you are using Thrivecart, please use him. He really gets how that system works.</p>
+        <div class="testi-meta"><span class="testi-name">deedee84335</span><span class="testi-sep">·</span><span class="testi-flag">United States</span><span class="testi-tag">Repeat Client</span></div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">It was a real pleasure working with Meta Omer. He has in depth product knowledge, is solution focused, and works on a very timely basis. Highly recommended, we will certainly utilise his services and expertise again.</p>
+        <div class="testi-meta"><span class="testi-name">neiljarrett57</span><span class="testi-sep">·</span><span class="testi-flag">Croatia</span></div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">Excellent work, thoughtful, concise, detailed. Will work with again.</p>
+        <div class="testi-meta"><span class="testi-name">brettbilon</span><span class="testi-sep">·</span><span class="testi-flag">Canada</span><span class="testi-tag">Repeat Client</span></div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">Worked on 3 different projects with him. Every single time, expectations were met and exceeded. Thanks for that.</p>
+        <div class="testi-meta"><span class="testi-name">user51925916</span><span class="testi-sep">·</span><span class="testi-flag">Italy</span></div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">Pleasure working with Meta Omer.</p>
+        <div class="testi-meta"><span class="testi-name">aaronsussman</span><span class="testi-sep">·</span><span class="testi-flag">United States</span></div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- ============ CONTACT ============ -->
+  <div class="quickform reveal">
+    <div class="qf-head">// send a message directly</div>
+    <form id="quickForm">
+      <div class="qf-row">
+        <input type="text" id="qfName" placeholder="your name" required>
+        <input type="email" id="qfEmail" placeholder="your email" required>
+      </div>
+      <textarea id="qfMsg" placeholder="what do you need help with" rows="3" required></textarea>
+      <button type="submit" class="btn-primary">send message</button>
+    </form>
+  </div>
+
   <div class="terminal reveal" id="contact" style="margin:0 0 88px;">
     <div class="terminal-bar">
       <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
@@ -869,7 +976,7 @@ footer a:hover{color:var(--amber);}
       <div class="t-line"><span class="t-prompt">❯ </span><span class="t-cmd">open github</span></div>
       <div class="t-line t-output">→ <a class="t-link" href="https://github.com/mirzaumerikram" target="_blank" rel="noopener">github.com/mirzaumerikram</a></div>
       <div class="t-line"><span class="t-prompt">❯ </span><span class="t-cmd">send email</span></div>
-      <div class="t-line t-output">→ <a class="t-link" href="mailto:mirzaumerikram114@gmail.com">mirzaumerikram114@gmail.com</a></div>
+      <div class="t-line t-output">→ <a class="t-link" href="mailto:mirzaumerikram114@gmail.com">mirzaumerikram114@gmail.com</a> <button class="copy-btn" id="copyEmailBtn" type="button">copy</button></div>
       <div class="t-line"><span class="t-prompt">❯ </span><span class="cursor"></span></div>
     </div>
   </div>
@@ -1060,6 +1167,90 @@ document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
   update();
 })();
 
+/* ---------- card expand toggle ---------- */
+document.querySelectorAll('.card-more').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const panel = btn.nextElementSibling;
+    const open = panel.classList.toggle('open');
+    btn.textContent = open ? '− how it works' : '+ how it works';
+  });
+});
+
+/* ---------- quick contact form, mailto prefill ---------- */
+(function(){
+  const form = document.getElementById('quickForm');
+  if(!form) return;
+  form.addEventListener('submit', e=>{
+    e.preventDefault();
+    const name = document.getElementById('qfName').value.trim();
+    const email = document.getElementById('qfEmail').value.trim();
+    const msg = document.getElementById('qfMsg').value.trim();
+    const subject = encodeURIComponent('Portfolio inquiry from ' + name);
+    const body = encodeURIComponent(msg + '\n\nFrom: ' + name + ' (' + email + ')');
+    window.location.href = 'mailto:mirzaumerikram114@gmail.com?subject=' + subject + '&body=' + body;
+  });
+})();
+
+(function(){
+  const btn = document.getElementById('copyEmailBtn');
+  if(!btn) return;
+  btn.addEventListener('click', async ()=>{
+    try{
+      await navigator.clipboard.writeText('mirzaumerikram114@gmail.com');
+      btn.textContent = 'copied';
+      btn.classList.add('copied');
+      setTimeout(()=>{ btn.textContent = 'copy'; btn.classList.remove('copied'); }, 1800);
+    }catch(e){ /* clipboard unavailable, link itself still works */ }
+  });
+})();
+
+/* ---------- active section nav indicator ---------- */
+(function(){
+  const navLinks = document.querySelectorAll('.nav-links a');
+  if(!navLinks.length) return;
+  const map = new Map();
+  navLinks.forEach(a=>{
+    const id = a.getAttribute('href').replace('#','');
+    const el = document.getElementById(id);
+    if(el) map.set(el, a);
+  });
+  if(!map.size) return;
+  const navObserver = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      const link = map.get(entry.target);
+      if(!link) return;
+      if(entry.isIntersecting) link.classList.add('nav-active');
+      else link.classList.remove('nav-active');
+    });
+  }, {rootMargin:'-40% 0px -50% 0px'});
+  map.forEach((link, el)=>navObserver.observe(el));
+})();
+
+/* ---------- tag usage tooltips, counted from the real cards on this page ---------- */
+(function(){
+  const tags = document.querySelectorAll('#cardGrid .tag');
+  if(!tags.length) return;
+  const counts = {};
+  tags.forEach(t=>{ const k = t.textContent.trim(); counts[k] = (counts[k]||0) + 1; });
+  tags.forEach(t=>{
+    const k = t.textContent.trim();
+    const n = counts[k];
+    t.title = n > 1 ? `used in ${n} projects on this page` : 'used in 1 project on this page';
+  });
+})();
+
+/* ---------- live status pulse, only on badges whose own real text says so ---------- */
+(function(){
+  const live = /live|active|ongoing|in progress/i;
+  document.querySelectorAll('.card-status').forEach(badge=>{
+    if(live.test(badge.textContent)){
+      const dot = document.createElement('span');
+      dot.className = 'status-pulse';
+      badge.prepend(dot);
+    }
+  });
+})();
+
 /* ---------- scroll progress bar ---------- */
 (function(){
   const bar = document.getElementById('scrollProgress');
@@ -1126,7 +1317,7 @@ if(window.matchMedia('(hover: hover) and (pointer: fine)').matches){
     const target = parseFloat(el.dataset.count);
     const suffix = el.dataset.suffix || '';
     const decimals = (el.dataset.count.split('.')[1] || '').length;
-    const dur = 900;
+    const dur = 650;
     const start = performance.now();
     function step(now){
       const p = Math.min(1, (now-start)/dur);
@@ -1145,7 +1336,7 @@ if(window.matchMedia('(hover: hover) and (pointer: fine)').matches){
         statObserver.disconnect();
       }
     });
-  }, {threshold:0.4});
+  }, {threshold:0.65});
   const row = document.getElementById('statRow');
   if(row) statObserver.observe(row);
 })();
