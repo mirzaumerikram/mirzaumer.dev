@@ -14,6 +14,8 @@
 <meta property="og:url" content="https://mirzaumer.dev" />
 <meta property="og:type" content="profile" />
 <meta name="theme-color" content="#050508" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="alternate icon" href="/favicon.svg" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -96,6 +98,7 @@ h1{font-family:var(--display);font-weight:700;font-size:clamp(46px,7.5vw,96px);l
 .hstat-n{font-family:var(--display);font-weight:700;font-size:2rem;line-height:1;margin-bottom:5px;}
 .hstat-l{font-size:11.5px;letter-spacing:0.05em;color:var(--text4);text-transform:uppercase;}
 .scroll-hint{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);z-index:30;font-family:var(--mono);font-size:11px;color:var(--text4);letter-spacing:2px;display:flex;flex-direction:column;align-items:center;gap:8px;transition:opacity 0.3s ease;pointer-events:none;}
+@media(max-height:820px){.scroll-hint{display:none;}}
 .scroll-hint.hidden{opacity:0;}
 .scroll-hint::after{content:'';width:1px;height:34px;background:linear-gradient(180deg,var(--cyan),transparent);animation:scrollPulse 2s ease-in-out infinite;}
 @keyframes scrollPulse{0%,100%{opacity:0.3;}50%{opacity:1;}}
