@@ -3,10 +3,14 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Mirza Umer Ikram — AI/ML Engineer & Automation Architect</title>
-<meta name="description" content="AI/ML Engineer at Evren AI and Level 2 Fiverr seller. I build RAG agents, automation pipelines, and Meta/Google ad systems that actually convert." />
+<title>Mirza Umer Ikram — Portfolio | AI/ML Engineer & Automation Architect</title>
+<meta name="description" content="Mirza Umer Ikram's official portfolio. AI/ML Engineer at Evren AI and Level 2 Fiverr seller. RAG agents, automation pipelines, and Meta/Google ad systems that convert." />
 <link rel="canonical" href="https://mirzaumer.dev" />
-<meta property="og:title" content="Mirza Umer Ikram — AI/ML Engineer & Automation Architect" />
+<meta property="og:title" content="Mirza Umer Ikram — Portfolio | AI/ML Engineer & Automation Architect" />
+<meta property="og:description" content="AI/ML Engineer at Evren AI and Level 2 Fiverr seller. RAG agents, automation pipelines, and Meta/Google ad systems that convert." />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Mirza Umer Ikram — Portfolio" />
+<meta name="twitter:description" content="AI/ML Engineer at Evren AI and Level 2 Fiverr seller." />
 <meta property="og:url" content="https://mirzaumer.dev" />
 <meta property="og:type" content="profile" />
 <meta name="theme-color" content="#050508" />
@@ -61,7 +65,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-links a.nav-active{color:var(--text);}
 .nav-links a.nav-active::after{width:100%;}
 .nav-cta{padding:9px 20px;border-radius:9px;background:var(--grad);color:#050508!important;font-weight:700;text-decoration:none;}
-@media(max-width:760px){.nav-links{display:none;}}
+.nav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;background:var(--surface);border:1px solid var(--border2);border-radius:9px;cursor:pointer;padding:0;}
+.nav-burger span{width:18px;height:2px;background:var(--text);margin:0 auto;transition:transform 0.25s ease,opacity 0.2s ease;}
+.nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-burger.open span:nth-child(2){opacity:0;}
+.nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-menu{position:fixed;inset:0;z-index:99;background:rgba(5,5,8,0.98);backdrop-filter:blur(16px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;opacity:0;pointer-events:none;transition:opacity 0.3s ease;}
+.mobile-menu.open{opacity:1;pointer-events:auto;}
+.mobile-menu a{font-family:var(--display);font-size:24px;font-weight:600;color:var(--text);text-decoration:none;}
+.mobile-menu a.nav-cta{padding:14px 30px;font-size:16px;margin-top:10px;}
+@media(max-width:760px){.nav-links{display:none;}.nav-burger{display:flex;}}
 
 /* ---------- HERO ---------- */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;}
@@ -82,7 +95,8 @@ h1{font-family:var(--display);font-weight:700;font-size:clamp(46px,7.5vw,96px);l
 .hstat{padding:18px 24px;border:1px solid var(--border);border-radius:14px;background:var(--surface);backdrop-filter:blur(10px);min-width:150px;}
 .hstat-n{font-family:var(--display);font-weight:700;font-size:2rem;line-height:1;margin-bottom:5px;}
 .hstat-l{font-size:11.5px;letter-spacing:0.05em;color:var(--text4);text-transform:uppercase;}
-.scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;font-family:var(--mono);font-size:11px;color:var(--text4);letter-spacing:2px;display:flex;flex-direction:column;align-items:center;gap:8px;}
+.scroll-hint{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);z-index:30;font-family:var(--mono);font-size:11px;color:var(--text4);letter-spacing:2px;display:flex;flex-direction:column;align-items:center;gap:8px;transition:opacity 0.3s ease;pointer-events:none;}
+.scroll-hint.hidden{opacity:0;}
 .scroll-hint::after{content:'';width:1px;height:34px;background:linear-gradient(180deg,var(--cyan),transparent);animation:scrollPulse 2s ease-in-out infinite;}
 @keyframes scrollPulse{0%,100%{opacity:0.3;}50%{opacity:1;}}
 
@@ -139,12 +153,21 @@ h2.sec-h2{font-family:var(--display);font-weight:700;font-size:clamp(32px,4.8vw,
 .work-metric-top{position:absolute;top:26px;right:26px;text-align:right;}
 .work-metric-n{font-family:var(--display);font-weight:700;font-size:24px;line-height:1;}
 .work-metric-l{font-size:10.5px;color:var(--text4);margin-top:4px;}
+.work-view-btn{cursor:pointer;border:none;}
+.work-detail{max-height:0;overflow:hidden;opacity:0;transition:max-height 0.4s ease,opacity 0.3s ease,margin-top 0.4s ease;font-size:13px;color:var(--text3);line-height:1.65;position:relative;z-index:3;}
+.work-detail.open{max-height:260px;opacity:1;margin-top:14px;}
+.work-detail-inner{border-top:1px solid var(--border2);padding-top:12px;}
+.work-detail a{color:var(--cyan);text-decoration:underline;}
+.work-close-hint{font-family:var(--mono);font-size:10.5px;color:var(--text4);margin-top:10px;display:block;}
 
 /* ---------- REVIEWS ---------- */
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-.review-card{padding:26px 24px;border:1px solid var(--border);border-radius:16px;background:var(--surface);backdrop-filter:blur(10px);transition:transform 0.25s,border-color 0.25s;}
+.marquee-wrap{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);overflow:hidden;padding:8px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);}
+.marquee-track{display:flex;gap:16px;width:max-content;animation:marqueeScroll 38s linear infinite;}
+.marquee-track:hover{animation-play-state:paused;}
+@keyframes marqueeScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.review-card{flex:0 0 340px;padding:26px 24px;border:1px solid var(--border);border-radius:16px;background:var(--surface);backdrop-filter:blur(10px);transition:transform 0.25s,border-color 0.25s;}
 .review-card:hover{transform:translateY(-4px);border-color:var(--border2);}
-.review-stars{color:var(--cyan);font-size:14px;letter-spacing:3px;margin-bottom:14px;}
+.review-stars{color:#FFC94A;font-size:14px;letter-spacing:3px;margin-bottom:14px;}
 .review-text{font-size:14.5px;line-height:1.7;color:var(--text2);font-style:italic;}
 .review-meta{display:flex;align-items:center;gap:11px;margin-top:18px;padding-top:16px;border-top:1px solid var(--border);}
 .review-avatar{width:36px;height:36px;border-radius:50%;background:var(--grad);display:grid;place-items:center;color:#050508;font-weight:800;font-size:14px;flex:none;}
@@ -180,11 +203,32 @@ footer .mono{font-family:var(--mono);}
 @media(max-width:880px){
   #about{grid-template-columns:1fr;}
   .work-grid{grid-template-columns:1fr;}
-  .testi-grid{grid-template-columns:1fr 1fr;}
   .insights-grid{grid-template-columns:1fr;}
+  .review-card{flex-basis:280px;}
+  section{padding:70px clamp(20px,5vw,64px);}
+  .hero-content{padding-top:120px;}
 }
-@media(max-width:600px){.testi-grid{grid-template-columns:1fr;}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;}.sr{opacity:1;transform:none;}}
+@media(max-width:600px){
+  nav{padding:16px 18px;}
+  .logo-name{font-size:14.5px;}
+  .logo-mark{width:30px;height:30px;font-size:14px;}
+  .eyebrow{font-size:11px;letter-spacing:1.5px;padding:7px 13px;}
+  h1{letter-spacing:-0.02em;}
+  .hero-ctas{flex-direction:column;}
+  .hero-ctas a{text-align:center;}
+  .hero-stats{gap:10px;}
+  .hstat{min-width:132px;padding:14px 18px;flex:1 1 40%;}
+  .hstat-n{font-size:1.6rem;}
+  section{padding:56px 18px;}
+  .work-card{padding:22px;}
+  .work-metric-top{position:static;text-align:left;margin-bottom:14px;}
+  .quickform{padding:1.3rem;}
+  .contact-socials a{flex:1 1 40%;text-align:center;}
+  footer{flex-direction:column;text-align:center;padding:24px 18px;}
+}
+.sr-left{opacity:0;transform:translateX(-36px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.sr-left.visible{opacity:1;transform:translateX(0);}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;}.sr,.sr-left{opacity:1;transform:none;}.marquee-track{animation:none;}}
 </style>
 </head>
 <body>
@@ -202,7 +246,19 @@ footer .mono{font-family:var(--mono);}
     <a href="#reviews">Reviews</a>
     <a class="nav-cta" href="#contact">Let's talk</a>
   </div>
+  <button class="nav-burger" id="navBurger" type="button" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#services">Services</a>
+  <a href="#work">Work</a>
+  <a href="#reviews">Reviews</a>
+  <a class="nav-cta" href="#contact">Let's talk</a>
+</div>
 
 <header class="hero" id="top">
   <div id="scene3d"></div>
@@ -319,7 +375,8 @@ footer .mono{font-family:var(--mono);}
       <div class="work-name">Plume Science</div>
       <p class="work-desc">Split bottom-of-funnel retargeting into three precise audiences and let the data show which one deserved the budget.</p>
       <div class="work-stack"><span class="work-tag">Meta Ads</span><span class="work-tag">Retargeting</span><span class="work-tag">CAPI</span></div>
-      <div class="work-overlay"><div class="work-view-btn">VIEW<br>PROJECT</div></div>
+      <div class="work-overlay"><button class="work-view-btn" type="button">VIEW<br>PROJECT</button></div>
+      <div class="work-detail"><div class="work-detail-inner">Ran alongside a Google Ads PMax compliance cleanup on the same account. Retargeting was split into cart abandoners (7d), PDP viewers (14d), and all-site visitors (30d), and budget was reallocated toward whichever tier actually converted rather than splitting evenly.<span class="work-close-hint">click again to close</span></div></div>
     </div>
 
     <div class="work-card sr sr-2">
@@ -329,7 +386,8 @@ footer .mono{font-family:var(--mono);}
       <div class="work-name">Vordele</div>
       <p class="work-desc">A 7-day creative test isolated two winning products. CPM went from an expensive guess to a proven number.</p>
       <div class="work-stack"><span class="work-tag">Meta Ads</span><span class="work-tag">Creative Testing</span></div>
-      <div class="work-overlay"><div class="work-view-btn">VIEW<br>PROJECT</div></div>
+      <div class="work-overlay"><button class="work-view-btn" type="button">VIEW<br>PROJECT</button></div>
+      <div class="work-detail"><div class="work-detail-inner">A 7-day test across the full apparel catalog isolated two winning dresses. The follow-up campaign, rebuilt with Add-to-Cart optimization instead of link clicks, took CTR to 8.55 percent and dropped CPM from $87 to $32.50 inside the same week.<span class="work-close-hint">click again to close</span></div></div>
     </div>
 
     <div class="work-card sr sr-3">
@@ -339,7 +397,8 @@ footer .mono{font-family:var(--mono);}
       <div class="work-name">Beverly Stays</div>
       <p class="work-desc">A summer traffic campaign aimed straight at the booking page for a Phoenix Airbnb host. Renewed for month two.</p>
       <div class="work-stack"><span class="work-tag">Meta Ads</span><span class="work-tag">Traffic Campaigns</span></div>
-      <div class="work-overlay"><div class="work-view-btn">VIEW<br>PROJECT</div></div>
+      <div class="work-overlay"><button class="work-view-btn" type="button">VIEW<br>PROJECT</button></div>
+      <div class="work-detail"><div class="work-detail-inner">A traffic campaign aimed straight at the Airbnb listing page for a Phoenix host, generating 747+ landing page visits at $0.32 each. The client renewed the engagement for a second 30-day run based on the booking increase.<span class="work-close-hint">click again to close</span></div></div>
     </div>
 
     <div class="work-card sr sr-4">
@@ -349,7 +408,8 @@ footer .mono{font-family:var(--mono);}
       <div class="work-name">PAM Contract AI</div>
       <p class="work-desc">A RAG agent trained on the PAM 2006 contract, handling clause interpretation behind a gated client login.</p>
       <div class="work-stack"><span class="work-tag">LangChain</span><span class="work-tag">RAG</span><span class="work-tag">Vercel</span></div>
-      <div class="work-overlay"><div class="work-view-btn">VIEW<br>PROJECT</div></div>
+      <div class="work-overlay"><button class="work-view-btn" type="button">VIEW<br>PROJECT</button></div>
+      <div class="work-detail"><div class="work-detail-inner">LangChain handles retrieval over the PAM 2006 contract text, the model generates the answer, and the whole thing sits behind a gated login for premium clients on Vercel. Handles clause interpretation, EOT claims, and retention rules.<span class="work-close-hint">click again to close</span></div></div>
     </div>
 
     <div class="work-card sr sr-5">
@@ -359,7 +419,8 @@ footer .mono{font-family:var(--mono);}
       <div class="work-name">AI Avatar Pipeline</div>
       <p class="work-desc">Custom LoRA on RunPod for a WAN 2.2 image-to-video model, with ComfyUI workflow and lip-sync evaluation.</p>
       <div class="work-stack"><span class="work-tag">ComfyUI</span><span class="work-tag">LoRA</span><span class="work-tag">RunPod</span></div>
-      <div class="work-overlay"><div class="work-view-btn">VIEW<br>PROJECT</div></div>
+      <div class="work-overlay"><button class="work-view-btn" type="button">VIEW<br>PROJECT</button></div>
+      <div class="work-detail"><div class="work-detail-inner">Trained for 6,000 steps on an A100, landing at a final loss around 0.048. Evaluated four lip-sync models: LatentSync caused distortion, Wav2Lip synced but with quality issues, MuseTalk had dependency conflicts, and Sync.so gave the cleanest results.<span class="work-close-hint">click again to close</span></div></div>
     </div>
 
     <div class="work-card sr sr-1">
@@ -369,49 +430,70 @@ footer .mono{font-family:var(--mono);}
       <div class="work-name">Self-Healing Ad Monitor</div>
       <p class="work-desc">An n8n workflow that catches pixel and budget issues across live accounts before they cost money.</p>
       <div class="work-stack"><span class="work-tag">n8n</span><span class="work-tag">LLM Agent</span></div>
-      <div class="work-overlay"><div class="work-view-btn">VIEW<br>PROJECT</div></div>
+      <div class="work-overlay"><button class="work-view-btn" type="button">VIEW<br>PROJECT</button></div>
+      <div class="work-detail"><div class="work-detail-inner">The workflow polls each live account on a schedule, checking Event Match Quality and budget pacing against set thresholds. When something drifts, an LLM step drafts a plain-language diagnosis and a proposed fix. Nothing touches spend until it is approved.<span class="work-close-hint">click again to close</span></div></div>
     </div>
 
   </div>
 </section>
 
 <section id="reviews">
-  <div class="sr" style="margin-bottom:48px;">
+  <div class="sr-left" style="margin-bottom:48px;">
     <span class="eyebrow-label">05 / Testimonials</span>
     <h2 class="sec-h2">Real reviews from Fiverr</h2>
   </div>
-  <div class="testi-grid">
+  <div class="marquee-wrap sr-left">
+    <div class="marquee-track" id="reviewTrack">
 
-    <div class="review-card sr sr-1">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">I highly recommend this fiver. mirzaumerikram understood what needed to be done better than I did. His work order was far more in depth than what I anticipated. He had great knowledge about Thrivecart.</p>
-      <div class="review-meta"><span class="review-avatar">D</span><div><div class="review-user">deedee84335</div><div class="review-country">United States</div></div></div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">I highly recommend this fiver. mirzaumerikram understood what needed to be done better than I did. His work order was far more in depth than what I anticipated. He had great knowledge about Thrivecart.</p>
+        <div class="review-meta"><span class="review-avatar">D</span><div><div class="review-user">deedee84335</div><div class="review-country">United States</div></div></div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">It was a real pleasure working with Meta Omer. He has in depth product knowledge, is solution focused, and works on a very timely basis. Highly recommended.</p>
+        <div class="review-meta"><span class="review-avatar">N</span><div><div class="review-user">neiljarrett57</div><div class="review-country">Croatia</div></div></div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Excellent work, thoughtful, concise, detailed. Will work with again.</p>
+        <div class="review-meta"><span class="review-avatar">B</span><div><div class="review-user">brettbilon</div><div class="review-country">Canada</div></div></div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Worked on 3 different projects with him. Every single time, expectations were met and exceeded.</p>
+        <div class="review-meta"><span class="review-avatar">U</span><div><div class="review-user">user51925916</div><div class="review-country">Italy</div></div></div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Pleasure working with Meta Omer.</p>
+        <div class="review-meta"><span class="review-avatar">A</span><div><div class="review-user">aaronsussman</div><div class="review-country">United States</div></div></div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Excellent experience from start to finish. The technician was highly professional, communicated clearly throughout the project, and demonstrated an impressive in-depth knowledge of the system. He quickly understood the requirements, delivered exactly what was needed, and provided valuable insights along the way.</p>
+        <div class="review-meta"><span class="review-avatar">C</span><div><div class="review-user">craig_palm</div><div class="review-country">South Africa</div></div></div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Umer is a professional freelancer, he knows what he's doing and have good understanding of meta and how things work. I am continuing with him for a follow up. Definitely recommend.</p>
+        <div class="review-meta"><span class="review-avatar">M</span><div><div class="review-user">mudassar85</div><div class="review-country">Pakistan</div></div></div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Très bon travail de son côté, je recommande fortement.</p>
+        <div class="review-meta"><span class="review-avatar">M</span><div><div class="review-user">maxencewright</div><div class="review-country">France</div></div></div>
+      </div>
+
     </div>
-
-    <div class="review-card sr sr-2">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">It was a real pleasure working with Meta Omer. He has in depth product knowledge, is solution focused, and works on a very timely basis. Highly recommended.</p>
-      <div class="review-meta"><span class="review-avatar">N</span><div><div class="review-user">neiljarrett57</div><div class="review-country">Croatia</div></div></div>
-    </div>
-
-    <div class="review-card sr sr-3">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">Excellent work, thoughtful, concise, detailed. Will work with again.</p>
-      <div class="review-meta"><span class="review-avatar">B</span><div><div class="review-user">brettbilon</div><div class="review-country">Canada</div></div></div>
-    </div>
-
-    <div class="review-card sr sr-1">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">Worked on 3 different projects with him. Every single time, expectations were met and exceeded.</p>
-      <div class="review-meta"><span class="review-avatar">U</span><div><div class="review-user">user51925916</div><div class="review-country">Italy</div></div></div>
-    </div>
-
-    <div class="review-card sr sr-2">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">Pleasure working with Meta Omer.</p>
-      <div class="review-meta"><span class="review-avatar">A</span><div><div class="review-user">aaronsussman</div><div class="review-country">United States</div></div></div>
-    </div>
-
   </div>
 </section>
 
@@ -492,7 +574,8 @@ const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function size(){
     const w = container.offsetWidth, h = container.offsetHeight;
     renderer.setSize(w, h);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    const cap = window.innerWidth < 640 ? 1.4 : 2;
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, cap));
     camera.aspect = w/h;
     camera.updateProjectionMatrix();
   }
@@ -512,7 +595,8 @@ const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   window.addEventListener('resize', placeGroup);
 
   // ---- neural sphere: points on a sphere with connecting lines ----
-  const NODE_COUNT = 220;
+  const isSmall = window.innerWidth < 640;
+  const NODE_COUNT = isSmall ? 120 : 220;
   const RADIUS = 2.6;
   const nodePositions = new Float32Array(NODE_COUNT * 3);
   const nodes = [];
@@ -556,7 +640,7 @@ const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   group.add(core);
 
   // ambient starfield behind
-  const STAR_COUNT = 320;
+  const STAR_COUNT = isSmall ? 140 : 320;
   const starPos = new Float32Array(STAR_COUNT * 3);
   for(let i = 0; i < STAR_COUNT; i++){
     starPos[i*3] = (Math.random()-0.5) * 26;
@@ -601,7 +685,14 @@ const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const srObs = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{if(e.isIntersecting) e.target.classList.add('visible');});
 },{threshold:0.1});
-document.querySelectorAll('.sr').forEach(el=>srObs.observe(el));
+document.querySelectorAll('.sr, .sr-left').forEach(el=>srObs.observe(el));
+
+/* ---- REVIEW MARQUEE: duplicate track for seamless loop ---- */
+(function(){
+  const track = document.getElementById('reviewTrack');
+  if(!track) return;
+  track.innerHTML += track.innerHTML;
+})();
 
 /* ---- STAT COUNT-UP ---- */
 (function(){
@@ -626,6 +717,49 @@ document.querySelectorAll('.sr').forEach(el=>srObs.observe(el));
   },{threshold:0.4});
   const row = document.querySelector('.hero-stats');
   if(row) obs.observe(row);
+})();
+
+/* ---- WORK CARD VIEW PROJECT TOGGLE ---- */
+document.querySelectorAll('.work-view-btn').forEach(btn=>{
+  btn.addEventListener('click', e=>{
+    e.stopPropagation();
+    const card = btn.closest('.work-card');
+    const detail = card.querySelector('.work-detail');
+    if(!detail) return;
+    document.querySelectorAll('.work-detail.open').forEach(d=>{ if(d !== detail) d.classList.remove('open'); });
+    detail.classList.toggle('open');
+  });
+});
+
+/* ---- SCROLL HINT VISIBILITY ---- */
+(function(){
+  const hint = document.querySelector('.scroll-hint');
+  if(!hint) return;
+  function update(){
+    hint.classList.toggle('hidden', window.scrollY > 80);
+  }
+  window.addEventListener('scroll', update, {passive:true});
+  update();
+})();
+
+/* ---- MOBILE MENU ---- */
+(function(){
+  const burger = document.getElementById('navBurger');
+  const menu = document.getElementById('mobileMenu');
+  if(!burger || !menu) return;
+  function close(){
+    burger.classList.remove('open');
+    menu.classList.remove('open');
+    burger.setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
+  }
+  burger.addEventListener('click', ()=>{
+    const isOpen = menu.classList.toggle('open');
+    burger.classList.toggle('open', isOpen);
+    burger.setAttribute('aria-expanded', String(isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click', close));
 })();
 
 /* ---- ACTIVE NAV ---- */
