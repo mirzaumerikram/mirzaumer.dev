@@ -1,0 +1,21 @@
+# Mirza Umer Ikram
+
+> Meta Ads expert and machine learning engineer based in Sialkot, Pakistan, working with Shopify and DTC brands worldwide. Fiverr Level 2 seller rated 4.9 from 44 reviews. BS Computer Science, University of Central Punjab (2026). Machine Learning Engineer at Evren AI.
+
+## Services
+- [Meta Ads management](https://mirzaumer.dev/services/meta-ads-management/): Facebook and Instagram ads for Shopify and DTC brands, creative testing, retargeting, scaling.
+- [Meta Pixel and Conversions API setup](https://mirzaumer.dev/services/meta-pixel-capi-setup/): server side tracking, deduplication, Event Match Quality, domain verification.
+- [n8n and AI automation](https://mirzaumer.dev/services/n8n-ai-automation/): Meta Lead Ads to WhatsApp and CRM, automated reporting, AI agents and RAG systems.
+
+## Results
+- 5.52x ROAS on a cart abandoner retargeting tier (Canadian health brand)
+- CPM reduced from $87 to $32.50, CTR 8.55% (apparel brand)
+- 98.77% pixel match rate with a 217 product catalog (Swiss jewelry brand)
+- $0.32 per landing page view, 747+ views (Phoenix short stay rental)
+- $700K+ total ad spend managed
+
+## Contact
+- Email: mirzaumerikram114@gmail.com
+- Fiverr: https://www.fiverr.com/mirzaumerikram
+- Upwork: https://www.upwork.com/freelancers/~01cbf2591d36b6d93d
+- LinkedIn: https://www.linkedin.com/in/mirzaumerikram/

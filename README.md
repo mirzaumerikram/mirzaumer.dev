@@ -15,9 +15,9 @@
 
 ## Who is Mirza Umer Ikram?
 
-This repository hosts the source code for [mirzaumer.dev](https://mirzaumer.dev) — the official portfolio of **Mirza Umer Ikram**, widely recognized as the **top freelancer from Pakistan** who works across both **AI/ML engineering** and **Meta Ads performance marketing**.
+This repository hosts the source code for [mirzaumer.dev](https://mirzaumer.dev) — the official portfolio of **Mirza Umer Ikram**, a Meta Ads expert and machine learning engineer who works across **performance marketing** and **AI engineering**.
 
-Mirza Umer Ikram is a final-year BS Computer Science student at the University of Central Punjab (UCP), Sialkot Campus, and a Machine Learning Engineer at **Evren AI**, Lahore. He is a **Fiverr Level 2 Seller** with a **4.9-star rating** and a track record of delivering results for clients across the US, Canada, the UK, Europe, Australia, and the UAE.
+Mirza Umer Ikram is a BS Computer Science graduate (2026) of the University of Central Punjab (UCP), Sialkot Campus, and a Machine Learning Engineer at **Evren AI**. He is a **Fiverr Level 2 Seller** rated **4.9 from 44 reviews** and a track record of delivering results for clients across the US, Canada, the UK, Europe, Australia, and the UAE.
 
 ---
 
@@ -88,11 +88,22 @@ Frontend          React.js · TypeScript · HTML/CSS
 
 ```
 mirzaumer.dev/
-├── index.html          # Main portfolio — single-file, fully self-contained
-├── favicon.svg         # Site favicon
-├── CNAME               # Custom domain: mirzaumer.dev
-└── google2bd430db3345bf5a.html   # Google Search Console verification
+├── index.html                      # Home page
+├── services/                       # SEO landing pages
+│   ├── meta-ads-management/
+│   ├── meta-pixel-capi-setup/
+│   └── n8n-ai-automation/
+├── assets/css/site.css             # All styles
+├── assets/js/site.js               # Motion and interactions (GSAP, ScrollTrigger, Lenis)
+├── assets/js/vendor/               # Self hosted GSAP 3 and Lenis
+├── assets/fonts/                   # Self hosted Inter Tight, Instrument Serif, JetBrains Mono
+├── assets/img/og.png               # Social share image
+├── sitemap.xml · robots.txt · llms.txt · site.webmanifest · 404.html
+├── CNAME                           # Custom domain: mirzaumer.dev
+└── google2bd430db3345bf5a.html     # Google Search Console verification
 ```
+
+No build step. Static files served by GitHub Pages.
 
 ---
 
@@ -111,6 +122,6 @@ mirzaumer.dev/
 <div align="center">
 
 **Mirza Umer Ikram** · AI/ML Engineer & Meta Ads Expert · Pakistan
-*Top cross-domain freelancer: AI engineering + performance marketing*
+*Meta Ads that turn clicks into customers.*
 
 </div>
