@@ -211,18 +211,14 @@
   /* ---------- cursor + magnetic ---------- */
   if (fine && !reduced) {
     root.classList.add('has-cursor');
-    const cur = $('.cursor'), dot = $('.cursor-dot'), ring = $('.cursor-ring'), label = $('.cursor-ring span');
-    let mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my;
-    addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; dot.style.transform = `translate(${mx}px,${my}px)`; }, { passive: true });
-    const loop = () => { rx += (mx - rx) * .16; ry += (my - ry) * .16; ring.style.transform = `translate(${rx}px,${ry}px)`; requestAnimationFrame(loop); };
-    loop();
+    const cur = $('.cursor'), dot = $('.cursor-dot');
+    addEventListener('mousemove', e => { dot.style.transform = `translate(${e.clientX}px,${e.clientY}px)`; }, { passive: true });
     document.addEventListener('mouseover', e => {
-      const lab = e.target.closest('[data-cursor]');
-      const link = e.target.closest('a,button,summary,select,input,textarea');
-      cur.classList.toggle('is-label', !!lab);
-      cur.classList.toggle('is-link', !lab && !!link);
-      if (lab) label.textContent = lab.dataset.cursor;
+      cur.classList.toggle('is-text', !!e.target.closest('input,textarea'));
+      cur.classList.toggle('is-link', !!e.target.closest('a,button,summary,select,[data-cursor],.case'));
     });
+    addEventListener('mousedown', () => cur.classList.add('is-down'));
+    addEventListener('mouseup', () => cur.classList.remove('is-down'));
     document.addEventListener('mouseleave', () => cur.style.opacity = 0);
     document.addEventListener('mouseenter', () => cur.style.opacity = 1);
     $$('[data-magnetic]').forEach(el => {
