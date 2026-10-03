@@ -251,8 +251,8 @@ section{position:relative}
 .case:hover{border-color:var(--line-2)}
 .case.wide{grid-column:span 7}.case.narrow{grid-column:span 5}
 .case-vis{position:relative;flex:1;min-height:260px;border-bottom:1px solid var(--line);overflow:hidden;background:radial-gradient(120% 90% at 80% 0%,rgba(200,162,102,.18),rgba(200,162,102,0) 60%),#f3f6f7}
-.case-vis svg{position:absolute;inset:0;width:100%;height:100%;transition:transform 1.2s var(--ease)}
-.case:hover .case-vis svg{transform:scale(1.04)}
+.case-vis svg{position:absolute;top:6%;right:4%;width:92%;height:74%;transition:transform 1.2s var(--ease)}
+.case:hover .case-vis svg{transform:translateY(-6px)}
 .case-metric{position:absolute;left:28px;bottom:22px;z-index:2}
 .case-metric b{display:block;font-size:clamp(54px,6vw,92px);letter-spacing:-.06em;line-height:.85;font-weight:500}
 .case-metric span{font-family:var(--mono);font-size:11.5px;color:var(--fg-2);text-transform:uppercase;letter-spacing:.04em}
