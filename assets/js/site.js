@@ -164,7 +164,6 @@
     }
 
     // case visuals parallax
-    $$('.case-vis svg').forEach(s => gsap.fromTo(s, { yPercent: -4 }, { yPercent: 4, ease: 'none', scrollTrigger: { trigger: s.closest('.case'), start: 'top bottom', end: 'bottom top', scrub: true } }));
 
     // big footer word
     const fw = $('.foot-word');
