@@ -127,7 +127,9 @@
       if (inHero) gsap.to(lines, { yPercent: 0, duration: 1.25, ease: 'expo.out', stagger: .085, delay: .1 });
       else ScrollTrigger.create({ trigger: el, start: 'top 85%', once: true, onEnter: () => gsap.to(lines, { yPercent: 0, duration: 1.15, ease: 'expo.out', stagger: .08 }) });
     });
-    ScrollTrigger.batch('.rv', {
+    const heroRv = $$('.hero .rv');
+    if (heroRv.length) gsap.to(heroRv, { opacity: 1, y: 0, duration: 1.2, ease: 'expo.out', stagger: .12, delay: .45 });
+    ScrollTrigger.batch($$('.rv').filter(el => !heroRv.includes(el)), {
       start: 'top 90%', once: true,
       onEnter: b => gsap.to(b, { opacity: 1, y: 0, duration: 1.1, ease: 'expo.out', stagger: .08, overwrite: true })
     });
@@ -136,11 +138,29 @@
     // hero panel parallax + float tags
     const panel = $('.panel-wrap');
     if (panel) {
-      gsap.from(panel, { y: 60, opacity: 0, rotateX: 8, transformPerspective: 1200, duration: 1.6, ease: 'expo.out', delay: .45, onStart: () => drawChart() });
-      gsap.from('.float-tag', { scale: .6, opacity: 0, duration: 1, ease: 'back.out(1.8)', stagger: .2, delay: 1.2 });
+      const tl = gsap.timeline({ paused: true });
+      tl.from(panel, { y: 70, opacity: 0, rotateX: 8, transformPerspective: 1200, duration: 1.5, ease: 'expo.out', onStart: () => drawChart() })
+        .from('.float-tag', { scale: .6, opacity: 0, duration: 1, ease: 'back.out(1.8)', stagger: .2 }, '-=.8');
+      ScrollTrigger.create({ trigger: panel, start: 'top 80%', once: true, onEnter: () => tl.play() });
       gsap.to('.ft-1', { y: -14, duration: 3, ease: 'sine.inOut', yoyo: true, repeat: -1 });
       gsap.to('.ft-2', { y: 12, duration: 3.6, ease: 'sine.inOut', yoyo: true, repeat: -1 });
-      gsap.to('.hero-glow', { yPercent: 30, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+    }
+
+    // cinematic hero: image pushes in through the fog as you scroll
+    const hero = $('.hero');
+    if (hero) {
+      gsap.from('.hero-media', { scale: 1.12, duration: 2.4, ease: 'expo.out' });
+      const hm = gsap.matchMedia();
+      hm.add('(min-width: 721px)', () => {
+        const t = gsap.timeline({ scrollTrigger: { trigger: hero, start: 'top top', end: '+=90%', pin: true, scrub: .9, anticipatePin: 1 } });
+        t.to('.hero-media img', { scale: 1.32, xPercent: -6, yPercent: 4, ease: 'none' }, 0)
+         .to('.hero-content', { y: -120, opacity: 0, ease: 'none' }, 0)
+         .to('.fog.f1', { xPercent: 30, yPercent: -40, scale: 1.4, ease: 'none' }, 0)
+         .to('.fog.f2', { xPercent: -25, yPercent: -30, scale: 1.3, ease: 'none' }, 0);
+      });
+      hm.add('(max-width: 720px)', () => {
+        gsap.to('.hero-media img', { scale: 1.15, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true } });
+      });
     }
 
     // case visuals parallax
