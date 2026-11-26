@@ -475,7 +475,7 @@ dialog.drawer[open]{animation:drawerIn .6s var(--ease)}
 @media (max-width:720px){
   .hero{height:auto;min-height:100svh}
   .hero-vignette{background:linear-gradient(180deg,rgba(20,20,22,.2) 0%,rgba(20,20,22,0) 30%,rgba(20,20,22,.85) 50%,#141416 62%)}
-  .hero-content{padding-top:100px;min-height:100svh;justify-content:flex-end}
+  .hero-content{padding-top:42svh;min-height:100svh;justify-content:flex-end}
   .hero .hero-top{display:none}
   .hero .h1{max-width:none}
   .hud-grid{grid-template-columns:repeat(2,1fr)}
