@@ -49,10 +49,13 @@
 
   /* ---------- nav behaviour ---------- */
   const nav = $('.nav');
+  const heroEl = $('.hero');
   let lastY = 0;
   const onScroll = () => {
     const y = scrollY;
     nav.classList.toggle('scrolled', y > 40);
+    const hh = heroEl ? heroEl.offsetHeight : 0;
+    nav.classList.toggle('on-dark', !!heroEl && y < hh - 70);
     if (!root.classList.contains('menu-open')) nav.classList.toggle('hide', y > 500 && y > lastY + 4);
     if (y < lastY - 4 || y < 500) nav.classList.remove('hide');
     lastY = y;
@@ -146,21 +149,11 @@
       gsap.to('.ft-2', { y: 12, duration: 3.6, ease: 'sine.inOut', yoyo: true, repeat: -1 });
     }
 
-    // cinematic hero: image pushes in through the fog as you scroll
+    // hero: content drifts up and the engine sinks back as you scroll away
     const hero = $('.hero');
     if (hero) {
-      gsap.from('.hero-media', { scale: 1.12, duration: 2.4, ease: 'expo.out' });
-      const hm = gsap.matchMedia();
-      hm.add('(min-width: 721px)', () => {
-        const t = gsap.timeline({ scrollTrigger: { trigger: hero, start: 'top top', end: '+=90%', pin: true, scrub: .9, anticipatePin: 1 } });
-        t.to('.hero-media img', { scale: 1.32, xPercent: -6, yPercent: 4, ease: 'none' }, 0)
-         .to('.hero-content', { y: -120, opacity: 0, ease: 'none' }, 0)
-         .to('.fog.f1', { xPercent: 30, yPercent: -40, scale: 1.4, ease: 'none' }, 0)
-         .to('.fog.f2', { xPercent: -25, yPercent: -30, scale: 1.3, ease: 'none' }, 0);
-      });
-      hm.add('(max-width: 720px)', () => {
-        gsap.to('.hero-media img', { scale: 1.15, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true } });
-      });
+      gsap.to('.hero-content', { y: -90, opacity: .15, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true } });
+      gsap.to('#engine', { yPercent: 12, scale: 1.06, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true } });
     }
 
     // case visuals parallax
@@ -300,6 +293,42 @@
     }));
     more && more.addEventListener('click', () => { expanded = !expanded; apply(); if (!expanded) scrollTo('#reviews'); });
     apply();
+  }
+
+  /* ---------- automation console ---------- */
+  const cb = $('#consoleBody');
+  if (cb) {
+    const lines = [
+      ['dim', '09:41:02  trigger   Meta Lead Ads · new lead'],
+      ['', '09:41:02  enrich    name, phone, service = "Bidet install"'],
+      ['', '09:41:03  ai.score  intent 0.91 · budget fits'],
+      ['red', '09:41:03  route     → WhatsApp template "quote_ready"'],
+      ['', '09:41:04  crm       contact created · owner: sales'],
+      ['', '09:41:04  capi      Lead event sent · match quality 8.9'],
+      ['ok', '09:41:05  done      lead answered in 3.1s'],
+      ['dim', '09:52:17  trigger   daily report · 5 ad accounts'],
+      ['', '09:52:19  check     ROAS, CPA, EMQ, budget pacing'],
+      ['red', '09:52:20  alert     pixel purchases down 38% on store 3'],
+      ['', '09:52:21  ai.note   drafted diagnosis for review'],
+      ['ok', '09:52:21  done      waiting for human approval'],
+    ];
+    let started = false;
+    const run = async () => {
+      if (started) return; started = true;
+      while (true) {
+        cb.innerHTML = '';
+        for (const [cls, txt] of lines) {
+          const row = document.createElement('div'); row.className = 'cl ' + cls; cb.appendChild(row);
+          if (reduced) { row.textContent = txt; continue; }
+          for (let i = 0; i <= txt.length; i += 2) { row.textContent = txt.slice(0, i); await new Promise(r => setTimeout(r, 14)); }
+          row.textContent = txt;
+          await new Promise(r => setTimeout(r, 260));
+        }
+        if (reduced) return;
+        await new Promise(r => setTimeout(r, 3500));
+      }
+    };
+    new IntersectionObserver(([e]) => { if (e.isIntersecting) run(); }, { threshold: .3 }).observe(cb);
   }
 
   /* ---------- ticker ---------- */
