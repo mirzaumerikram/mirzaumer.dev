@@ -3,6 +3,19 @@
 (() => {
   const canvas = document.getElementById('engine');
   if (!canvas) return;
+  if (window.__engine3d) {
+    // 3D scene owns the canvas; keep the funnel counters ticking
+    const st = { imp: 18420, clk: 1386, buy: 112, rev: 9480 };
+    const q = id => document.getElementById(id), f = n => Math.round(n).toLocaleString('en-US');
+    const tick = () => {
+      st.imp += 20 + Math.random() * 40; if (Math.random() < .55) st.clk += 1 + Math.random() * 4;
+      if (Math.random() < .35) { st.buy += 1; st.rev += 40 + Math.random() * 120; }
+      q('hudImp') && (q('hudImp').textContent = f(st.imp)); q('hudClk') && (q('hudClk').textContent = f(st.clk));
+      q('hudBuy') && (q('hudBuy').textContent = f(st.buy)); q('hudRoas') && (q('hudRoas').textContent = (st.rev / (st.imp * 0.11)).toFixed(2) + 'x');
+    };
+    tick(); if (!matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(tick, 700);
+    return;
+  }
   const ctx = canvas.getContext('2d');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const RED = '225,27,34';
