@@ -17,7 +17,7 @@
 
 This repository hosts the source code for [mirzaumer.dev](https://mirzaumer.dev) — the official portfolio of **Mirza Umer Ikram**, a Meta Ads expert and machine learning engineer who works across **performance marketing** and **AI engineering**.
 
-Mirza Umer Ikram is a BS Computer Science graduate (2026) of the University of Central Punjab (UCP), Sialkot Campus, and a Machine Learning Engineer at **Evren AI**. He is a **Fiverr Level 2 Seller** rated **4.9 from 44 reviews** and a track record of delivering results for clients across the US, Canada, the UK, Europe, Australia, and the UAE.
+Mirza Umer Ikram is a BS Computer Science graduate (2026) of the University of Central Punjab (UCP), Sialkot Campus, and a Machine Learning Engineer at **Evren AI**. He is a **Fiverr Level 2 Seller** rated **4.9 from 51 reviews** with **100+ orders completed** and a track record of delivering results for clients across the US, Canada, the UK, Europe, Australia, and the UAE.
 
 ---
 
